@@ -30,14 +30,43 @@ async function inspect(name) {
   return { js, css, modules }
 }
 
-const button = await inspect('button-only')
-const dialog = await inspect('dialog-only')
+function assertPlatform(bundle, platform, component) {
+  const other = platform === 'desktop' ? 'mobile' : 'desktop'
+  const className = platform === 'desktop' ? `.ds-${component}` : `.ds-mobile-${component}`
+  const unwantedClass = other === 'desktop' ? `.ds-${component}` : `.ds-mobile-${component}`
+  if (!bundle.css.includes(className)) throw new Error(`${platform} ${component} CSS is missing`)
+  if (bundle.css.includes(unwantedClass)) throw new Error(`${other} ${component} CSS entered ${platform} bundle`)
+  if (bundle.modules.some((name) => name.includes(`/dist/${other}/components/`))) {
+    throw new Error(`${other} component JS entered ${platform} bundle`)
+  }
+}
 
-if (!button.css.includes('.ds-button')) throw new Error('Button CSS is missing from Button-only bundle')
-if (button.css.includes('.ds-dialog')) throw new Error('Dialog CSS entered the Button-only bundle')
-if (button.modules.some((name) => name.includes('@radix-ui/react-dialog'))) throw new Error('Radix entered the Button-only bundle')
-if (!dialog.modules.some((name) => name.includes('@radix-ui/react-dialog'))) throw new Error('Dialog bundle is missing Radix')
+const legacy = await inspect('button-only')
+const desktopButton = await inspect('desktop-button-only')
+const mobileButton = await inspect('mobile-button-only')
+const desktopDialog = await inspect('desktop-dialog-only')
+const mobileDialog = await inspect('mobile-dialog-only')
 
-console.log(`Button only: ${Buffer.byteLength(button.js)} bytes JS, ${Buffer.byteLength(button.css)} bytes CSS`)
-console.log(`Dialog only: ${Buffer.byteLength(dialog.js)} bytes JS, ${Buffer.byteLength(dialog.css)} bytes CSS`)
-console.log('Vite production tree-shaking check passed')
+assertPlatform(legacy, 'desktop', 'button')
+assertPlatform(desktopButton, 'desktop', 'button')
+assertPlatform(mobileButton, 'mobile', 'button')
+assertPlatform(desktopDialog, 'desktop', 'dialog')
+assertPlatform(mobileDialog, 'mobile', 'dialog')
+for (const [name, bundle] of [['legacy', legacy], ['desktop', desktopButton], ['mobile', mobileButton]]) {
+  if (bundle.modules.some((path) => path.includes('@radix-ui/react-dialog'))) {
+    throw new Error(`Radix entered ${name} Button-only bundle`)
+  }
+  if (bundle.css.includes('.ds-dialog') || bundle.css.includes('.ds-mobile-dialog')) {
+    throw new Error(`Dialog CSS entered ${name} Button-only bundle`)
+  }
+}
+for (const [name, bundle] of [['desktop', desktopDialog], ['mobile', mobileDialog]]) {
+  if (!bundle.modules.some((path) => path.includes('@radix-ui/react-dialog'))) {
+    throw new Error(`${name} Dialog bundle is missing Radix`)
+  }
+}
+
+for (const [name, bundle] of [['desktop Button', desktopButton], ['mobile Button', mobileButton], ['desktop Dialog', desktopDialog], ['mobile Dialog', mobileDialog]]) {
+  console.log(`${name}: ${Buffer.byteLength(bundle.js)} bytes JS, ${Buffer.byteLength(bundle.css)} bytes CSS`)
+}
+console.log('Desktop/mobile bundle isolation check passed')

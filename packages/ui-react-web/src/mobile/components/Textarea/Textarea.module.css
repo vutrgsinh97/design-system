@@ -1,0 +1,6 @@
+.scope {}
+:global(.ds-mobile-textarea) { background: var(--ds-mobile-field); border: 2px solid transparent; border-radius: var(--ds-mobile-radius); box-sizing: border-box; color: var(--ds-mobile-text); font: 500 1rem/1.5 var(--ds-font-family); min-height: 8rem; padding: 0.875rem 1rem; resize: vertical; width: 100%; }
+:global(.ds-mobile-textarea)::placeholder { color: var(--ds-mobile-muted); }
+:global(.ds-mobile-textarea):focus-visible { border-color: var(--ds-mobile-focus); outline: none; }
+:global(.ds-mobile-textarea)[aria-invalid='true'] { border-color: var(--ds-mobile-danger); }
+:global(.ds-mobile-textarea):disabled { cursor: not-allowed; opacity: 0.55; }

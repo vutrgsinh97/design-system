@@ -16,14 +16,14 @@ import {
   Switch,
   Text,
   Textarea
-} from '@company/ui-react-web'
+} from '@company/ui-react-web/desktop'
 
 export default function Home() {
   return (
     <main className="demo">
       <header>
         <Badge variant="primary">Design system</Badge>
-        <h1>UI React Web</h1>
+        <h1>Desktop components</h1>
         <Text tone="muted">Next.js integration example</Text>
       </header>
       <Card className="demo-card">

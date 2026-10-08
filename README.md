@@ -7,14 +7,17 @@ One Git repository for shared UI packages. The first package is `@company/ui-rea
 | Path | Purpose |
 | --- | --- |
 | `packages/ui-react-web` | React web components, types, CSS, package exports |
-| `packages/ui-react-web/src/components/<Name>` | One folder per component, with `index.tsx` and `<Name>.module.css` |
-| `apps/next-example` | Next.js integration and SSR check |
+| `packages/ui-react-web/src/desktop/components/<Name>` | Desktop implementation and CSS for each component |
+| `packages/ui-react-web/src/mobile/components/<Name>` | Independent mobile web implementation and CSS |
+| `packages/ui-react-web/src/mobile/styles` | Mobile visual tokens; shared semantic colors remain in `src/styles` |
+| `apps/next-example` | Desktop Next.js playground and integration check |
+| `apps/next-mobile-example` | Mobile web Next.js playground and integration check |
 | `apps/vite-example` | Vite integration check |
-| `apps/vite-example/scripts/check-bundle.mjs` | Proves a Button-only Vite build excludes Dialog and Radix |
+| `apps/vite-example/scripts/check-bundle.mjs` | Checks desktop/mobile bundle isolation and excludes Dialog from Button-only builds |
 | `ai-handoffs` | Task briefs and reports for agents |
 | `REVIEW.md` | Pull request and release review checklist |
 
-Add Vue, Angular, React Native, or Flutter packages when a real consumer needs them. Shared tokens can be extracted into a separate package at that point. The React web package remains the only package a React consumer installs.
+The current scope is desktop web and mobile web. Both live in the same React package, with separate implementations and entry points. A consumer installs only `@company/ui-react-web`.
 
 ## Quick start: open the playground
 
@@ -25,15 +28,15 @@ pnpm install
 pnpm dev:playground
 ```
 
-Open the URL printed by Next.js in the terminal (normally [http://localhost:3000](http://localhost:3000)). The playground is `apps/next-example`: it shows Button variants, form controls, status components, and a Dialog you can open and close. If port 3000 is occupied, use the URL Next.js prints instead. Press `Ctrl+C` in the terminal to stop both the app and package watcher.
+Open the URL printed by Next.js in the terminal (normally [http://localhost:3000](http://localhost:3000)). This starts the desktop playground in `apps/next-example`. If port 3000 is occupied, use the URL Next.js prints instead. Press `Ctrl+C` in the terminal to stop both the app and package watcher.
 
-For the smaller Vite demo, stop the Next.js command and run:
+To view the independent mobile web playground, stop the desktop command and run:
 
 ```sh
-pnpm dev:vite
+pnpm dev:mobile
 ```
 
-Open the URL printed by Vite (normally [http://localhost:5173](http://localhost:5173)). The Vite page is in `apps/vite-example/src/App.tsx`; the fuller Next.js playground is in `apps/next-example/app/page.tsx`.
+Open the URL printed by Next.js (normally [http://localhost:3000](http://localhost:3000)). The mobile demo is `apps/next-mobile-example/app/page.tsx`; it includes touch-sized controls and a bottom-aligned Dialog. For the smaller desktop Vite demo, stop the current command and run `pnpm dev:vite`, then open Vite's printed URL (normally [http://localhost:5173](http://localhost:5173)).
 
 Both apps depend on the local package through `workspace:*`. The dev command builds the UI package first, then polls its source and rebuilds JS, types, and CSS when files change. Refresh the browser if your dev server does not pick up a rebuilt package file automatically.
 
@@ -42,6 +45,7 @@ To verify the package without starting a server:
 ```sh
 pnpm check
 pnpm --filter next-example build
+pnpm --filter next-mobile-example build
 pnpm --filter vite-example build
 ```
 
@@ -51,13 +55,18 @@ Run `pnpm add /absolute/path/to/design-system/packages/ui-react-web` in the cons
 
 ## Consumer API
 
+Import the view that the consumer app needs:
+
 ```tsx
-import { Button, Input, Dialog } from '@company/ui-react-web'
+import { Button as DesktopButton } from '@company/ui-react-web/desktop'
+import { Button as MobileButton } from '@company/ui-react-web/mobile'
 ```
 
-The root import is tree-shakeable in the verified Vite and Next.js production builds. Every component also has an explicit subpath such as `@company/ui-react-web/button`. Components import their own CSS module; the small theme token file is shared. A consumer may override `--ds-*` variables or set `data-ds-theme="dark"` on a parent element.
+Each view also has direct component entry points such as `@company/ui-react-web/desktop/button` and `@company/ui-react-web/mobile/button`. The original root import (`@company/ui-react-web`) and existing `@company/ui-react-web/button` paths remain desktop aliases for compatibility. New code should use the explicit view path.
 
-`react` and `react-dom` are peer dependencies. The library build preserves individual ESM modules and the `'use client'` directive for Dialog. The package does not bundle React.
+The package does not detect the viewport or switch implementations automatically. The consumer chooses desktop or mobile at an app/route entry boundary. Importing both views into one entry can load both implementations. The playground uses two independent Next.js apps because, in this workspace, a single Next.js Turbopack app with desktop and mobile routes also linked desktop CSS from the mobile route. Separate apps produced isolated CSS. Vite production fixtures verify that a Button-only build for either view excludes the other view, Dialog CSS, and Radix.
+
+Both views import their own CSS modules. Shared semantic colors are in `src/styles/theme.css`; mobile has additional visual tokens in `src/mobile/styles/mobile.css`. Consumers can override `--ds-*` and `--ds-mobile-*` CSS variables. React and React DOM remain peer dependencies; the package does not bundle React. The desktop and mobile Dialog entries preserve the `'use client'` directive.
 
 ## Release
 
@@ -75,7 +84,8 @@ No publish workflow is enabled until the registry and package scope are set. The
 - Use a behavior library only where it removes meaningful accessibility complexity. Dialog currently uses Radix.
 - Keep CSS local to each component. Avoid importing one stylesheet containing every component.
 - Keep public props consistent: `variant`, `size`, `disabled`, `className`, and standard HTML attributes where applicable.
-- Verify a Button-only production bundle before each release.
+- Verify Button-only desktop and mobile production bundles before each release.
+- Keep desktop and mobile implementations independent; share only tokens, types, or logic that is genuinely platform-neutral.
 
 ## Next components
 

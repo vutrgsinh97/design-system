@@ -1,4 +1,4 @@
-import { Button, Card, Input, Text } from '@company/ui-react-web'
+import { Button, Card, Input, Text } from '@company/ui-react-web/desktop'
 
 export function App() {
   return (

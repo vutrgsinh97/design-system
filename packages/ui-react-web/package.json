@@ -4,72 +4,196 @@
   "description": "Internal React web UI components",
   "type": "module",
   "license": "UNLICENSED",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js"
     },
+    "./desktop": {
+      "types": "./dist/desktop/index.d.ts",
+      "import": "./dist/desktop/index.js"
+    },
+    "./mobile": {
+      "types": "./dist/mobile/index.d.ts",
+      "import": "./dist/mobile/index.js"
+    },
     "./button": {
-      "types": "./dist/components/Button/index.d.ts",
-      "import": "./dist/components/Button/index.js"
+      "types": "./dist/desktop/components/Button/index.d.ts",
+      "import": "./dist/desktop/components/Button/index.js"
     },
     "./input": {
-      "types": "./dist/components/Input/index.d.ts",
-      "import": "./dist/components/Input/index.js"
+      "types": "./dist/desktop/components/Input/index.d.ts",
+      "import": "./dist/desktop/components/Input/index.js"
     },
     "./textarea": {
-      "types": "./dist/components/Textarea/index.d.ts",
-      "import": "./dist/components/Textarea/index.js"
+      "types": "./dist/desktop/components/Textarea/index.d.ts",
+      "import": "./dist/desktop/components/Textarea/index.js"
     },
     "./checkbox": {
-      "types": "./dist/components/Checkbox/index.d.ts",
-      "import": "./dist/components/Checkbox/index.js"
+      "types": "./dist/desktop/components/Checkbox/index.d.ts",
+      "import": "./dist/desktop/components/Checkbox/index.js"
     },
     "./radio": {
-      "types": "./dist/components/Radio/index.d.ts",
-      "import": "./dist/components/Radio/index.js"
+      "types": "./dist/desktop/components/Radio/index.d.ts",
+      "import": "./dist/desktop/components/Radio/index.js"
     },
     "./switch": {
-      "types": "./dist/components/Switch/index.d.ts",
-      "import": "./dist/components/Switch/index.js"
+      "types": "./dist/desktop/components/Switch/index.d.ts",
+      "import": "./dist/desktop/components/Switch/index.js"
     },
     "./select": {
-      "types": "./dist/components/Select/index.d.ts",
-      "import": "./dist/components/Select/index.js"
+      "types": "./dist/desktop/components/Select/index.d.ts",
+      "import": "./dist/desktop/components/Select/index.js"
     },
     "./card": {
-      "types": "./dist/components/Card/index.d.ts",
-      "import": "./dist/components/Card/index.js"
+      "types": "./dist/desktop/components/Card/index.d.ts",
+      "import": "./dist/desktop/components/Card/index.js"
     },
     "./badge": {
-      "types": "./dist/components/Badge/index.d.ts",
-      "import": "./dist/components/Badge/index.js"
+      "types": "./dist/desktop/components/Badge/index.d.ts",
+      "import": "./dist/desktop/components/Badge/index.js"
     },
     "./alert": {
-      "types": "./dist/components/Alert/index.d.ts",
-      "import": "./dist/components/Alert/index.js"
+      "types": "./dist/desktop/components/Alert/index.d.ts",
+      "import": "./dist/desktop/components/Alert/index.js"
     },
     "./spinner": {
-      "types": "./dist/components/Spinner/index.d.ts",
-      "import": "./dist/components/Spinner/index.js"
+      "types": "./dist/desktop/components/Spinner/index.d.ts",
+      "import": "./dist/desktop/components/Spinner/index.js"
     },
     "./divider": {
-      "types": "./dist/components/Divider/index.d.ts",
-      "import": "./dist/components/Divider/index.js"
+      "types": "./dist/desktop/components/Divider/index.d.ts",
+      "import": "./dist/desktop/components/Divider/index.js"
     },
     "./text": {
-      "types": "./dist/components/Text/index.d.ts",
-      "import": "./dist/components/Text/index.js"
+      "types": "./dist/desktop/components/Text/index.d.ts",
+      "import": "./dist/desktop/components/Text/index.js"
     },
     "./dialog": {
-      "types": "./dist/components/Dialog/index.d.ts",
-      "import": "./dist/components/Dialog/index.js"
+      "types": "./dist/desktop/components/Dialog/index.d.ts",
+      "import": "./dist/desktop/components/Dialog/index.js"
+    },
+    "./desktop/alert": {
+      "types": "./dist/desktop/components/Alert/index.d.ts",
+      "import": "./dist/desktop/components/Alert/index.js"
+    },
+    "./desktop/badge": {
+      "types": "./dist/desktop/components/Badge/index.d.ts",
+      "import": "./dist/desktop/components/Badge/index.js"
+    },
+    "./desktop/button": {
+      "types": "./dist/desktop/components/Button/index.d.ts",
+      "import": "./dist/desktop/components/Button/index.js"
+    },
+    "./desktop/card": {
+      "types": "./dist/desktop/components/Card/index.d.ts",
+      "import": "./dist/desktop/components/Card/index.js"
+    },
+    "./desktop/checkbox": {
+      "types": "./dist/desktop/components/Checkbox/index.d.ts",
+      "import": "./dist/desktop/components/Checkbox/index.js"
+    },
+    "./desktop/dialog": {
+      "types": "./dist/desktop/components/Dialog/index.d.ts",
+      "import": "./dist/desktop/components/Dialog/index.js"
+    },
+    "./desktop/divider": {
+      "types": "./dist/desktop/components/Divider/index.d.ts",
+      "import": "./dist/desktop/components/Divider/index.js"
+    },
+    "./desktop/input": {
+      "types": "./dist/desktop/components/Input/index.d.ts",
+      "import": "./dist/desktop/components/Input/index.js"
+    },
+    "./desktop/radio": {
+      "types": "./dist/desktop/components/Radio/index.d.ts",
+      "import": "./dist/desktop/components/Radio/index.js"
+    },
+    "./desktop/select": {
+      "types": "./dist/desktop/components/Select/index.d.ts",
+      "import": "./dist/desktop/components/Select/index.js"
+    },
+    "./desktop/spinner": {
+      "types": "./dist/desktop/components/Spinner/index.d.ts",
+      "import": "./dist/desktop/components/Spinner/index.js"
+    },
+    "./desktop/switch": {
+      "types": "./dist/desktop/components/Switch/index.d.ts",
+      "import": "./dist/desktop/components/Switch/index.js"
+    },
+    "./desktop/text": {
+      "types": "./dist/desktop/components/Text/index.d.ts",
+      "import": "./dist/desktop/components/Text/index.js"
+    },
+    "./desktop/textarea": {
+      "types": "./dist/desktop/components/Textarea/index.d.ts",
+      "import": "./dist/desktop/components/Textarea/index.js"
+    },
+    "./mobile/alert": {
+      "types": "./dist/mobile/components/Alert/index.d.ts",
+      "import": "./dist/mobile/components/Alert/index.js"
+    },
+    "./mobile/badge": {
+      "types": "./dist/mobile/components/Badge/index.d.ts",
+      "import": "./dist/mobile/components/Badge/index.js"
+    },
+    "./mobile/button": {
+      "types": "./dist/mobile/components/Button/index.d.ts",
+      "import": "./dist/mobile/components/Button/index.js"
+    },
+    "./mobile/card": {
+      "types": "./dist/mobile/components/Card/index.d.ts",
+      "import": "./dist/mobile/components/Card/index.js"
+    },
+    "./mobile/checkbox": {
+      "types": "./dist/mobile/components/Checkbox/index.d.ts",
+      "import": "./dist/mobile/components/Checkbox/index.js"
+    },
+    "./mobile/dialog": {
+      "types": "./dist/mobile/components/Dialog/index.d.ts",
+      "import": "./dist/mobile/components/Dialog/index.js"
+    },
+    "./mobile/divider": {
+      "types": "./dist/mobile/components/Divider/index.d.ts",
+      "import": "./dist/mobile/components/Divider/index.js"
+    },
+    "./mobile/input": {
+      "types": "./dist/mobile/components/Input/index.d.ts",
+      "import": "./dist/mobile/components/Input/index.js"
+    },
+    "./mobile/radio": {
+      "types": "./dist/mobile/components/Radio/index.d.ts",
+      "import": "./dist/mobile/components/Radio/index.js"
+    },
+    "./mobile/select": {
+      "types": "./dist/mobile/components/Select/index.d.ts",
+      "import": "./dist/mobile/components/Select/index.js"
+    },
+    "./mobile/spinner": {
+      "types": "./dist/mobile/components/Spinner/index.d.ts",
+      "import": "./dist/mobile/components/Spinner/index.js"
+    },
+    "./mobile/switch": {
+      "types": "./dist/mobile/components/Switch/index.d.ts",
+      "import": "./dist/mobile/components/Switch/index.js"
+    },
+    "./mobile/text": {
+      "types": "./dist/mobile/components/Text/index.d.ts",
+      "import": "./dist/mobile/components/Text/index.js"
+    },
+    "./mobile/textarea": {
+      "types": "./dist/mobile/components/Textarea/index.d.ts",
+      "import": "./dist/mobile/components/Textarea/index.js"
     },
     "./theme.css": "./dist/styles/theme.css"
   },
-  "sideEffects": ["**/*.css"],
+  "sideEffects": [
+    "**/*.css"
+  ],
   "scripts": {
     "clean": "node scripts/clean.mjs",
     "build": "pnpm clean && tsc -p tsconfig.build.json && node scripts/copy-css.mjs",

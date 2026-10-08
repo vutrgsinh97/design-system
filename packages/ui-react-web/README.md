@@ -1,11 +1,12 @@
 # @company/ui-react-web
 
-Private React web UI components for the design-system workspace. Replace the placeholder `@company` scope before publishing.
+Private React web UI components for desktop and mobile web. Replace the placeholder `@company` scope before publishing.
 
 ```tsx
-import { Button, Dialog, DialogContent } from '@company/ui-react-web'
+import { Button } from '@company/ui-react-web/desktop'
+import { Button as MobileButton } from '@company/ui-react-web/mobile'
 ```
 
-Each component also has a subpath export, for example `@company/ui-react-web/button`. CSS is included automatically by Vite and Next.js. React and React DOM are peer dependencies.
+Direct component paths include `/desktop/button` and `/mobile/button`. The root path and `/button` remain desktop aliases for existing consumers. The package includes CSS automatically in Vite and Next.js; React and React DOM are peer dependencies.
 
-See the workspace [README](../../README.md) for local development, release, and bundle verification.
+See the workspace [README](../../README.md) for the two playground routes, local development, release, and bundle verification.

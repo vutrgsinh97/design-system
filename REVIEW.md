@@ -19,16 +19,17 @@ Adapted for this UI library from the [Front-End Checklist](https://github.com/th
 
 ## Styling and performance
 
-- [ ] A component keeps its implementation and CSS together in `src/components/<Name>/`.
+- [ ] Each component keeps implementation and CSS together in its desktop or mobile folder.
+- [ ] Desktop and mobile imports do not depend on each other.
 - [ ] Styles are scoped with `ds-` names and use shared tokens.
 - [ ] Component CSS does not affect unrelated MFE elements.
-- [ ] Button-only bundle excludes Dialog, Radix, and Dialog CSS.
+- [ ] Button-only bundles for desktop and mobile exclude the other view, Dialog, Radix, and Dialog CSS.
 - [ ] Production JS/CSS size change is measured and justified for new dependencies.
 - [ ] Icons, fonts, locales, and complex controls are imported only where used.
 
 ## Verification
 
 - [ ] TypeScript build and `pnpm check` pass.
-- [ ] Next.js and Vite production examples build after package changes.
+- [ ] Both Next.js playground apps and the Vite production example build after package changes.
 - [ ] Changed components have an example showing ordinary, disabled, error, and loading states where relevant.
 - [ ] New behavior is checked in a browser with keyboard and an accessibility inspector.

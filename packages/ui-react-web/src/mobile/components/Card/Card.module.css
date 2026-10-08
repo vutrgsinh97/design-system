@@ -1,0 +1,2 @@
+.scope {}
+:global(.ds-mobile-card) { background: var(--ds-mobile-surface); border: 1px solid var(--ds-mobile-border); border-radius: 1.5rem; box-shadow: var(--ds-mobile-shadow); color: var(--ds-mobile-text); padding: 1.25rem; }

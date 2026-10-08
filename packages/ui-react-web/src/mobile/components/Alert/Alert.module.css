@@ -1,0 +1,6 @@
+.scope {}
+:global(.ds-mobile-alert) { background: var(--ds-mobile-field); border-left: 4px solid currentColor; border-radius: 0.875rem; color: var(--ds-mobile-text); font: 500 0.9375rem/1.5 var(--ds-font-family); padding: 1rem 1.125rem; }
+:global(.ds-mobile-alert--info) { color: var(--ds-mobile-accent); }
+:global(.ds-mobile-alert--success) { color: var(--ds-color-success); }
+:global(.ds-mobile-alert--warning) { color: var(--ds-color-warning); }
+:global(.ds-mobile-alert--danger) { color: var(--ds-mobile-danger); }

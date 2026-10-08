@@ -5,11 +5,12 @@
   "packageManager": "pnpm@11.15.1",
   "scripts": {
     "build": "pnpm --filter @company/ui-react-web build",
-    "typecheck": "pnpm --filter @company/ui-react-web typecheck && pnpm --filter next-example typecheck && pnpm --filter vite-example typecheck",
+    "typecheck": "pnpm --filter @company/ui-react-web typecheck && pnpm --filter next-example typecheck && pnpm --filter next-mobile-example typecheck && pnpm --filter vite-example typecheck",
     "check:bundle": "node apps/vite-example/scripts/check-bundle.mjs",
     "check": "pnpm build && pnpm typecheck && pnpm check:bundle",
     "dev:playground": "pnpm dev:next",
     "dev:next": "pnpm build && pnpm --parallel --filter @company/ui-react-web --filter next-example dev",
+    "dev:mobile": "pnpm build && pnpm --parallel --filter @company/ui-react-web --filter next-mobile-example dev",
     "dev:vite": "pnpm build && pnpm --parallel --filter @company/ui-react-web --filter vite-example dev",
     "changeset": "changeset",
     "version-packages": "changeset version",
