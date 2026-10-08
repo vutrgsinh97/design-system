@@ -1,0 +1,31 @@
+.scope {}
+:global(.ds-button) {
+  align-items: center;
+  border: 1px solid transparent;
+  border-radius: var(--ds-radius-md);
+  cursor: pointer;
+  display: inline-flex;
+  font: 600 0.875rem/1.25 var(--ds-font-family);
+  gap: 0.5rem;
+  justify-content: center;
+  text-decoration: none;
+  transition: background-color 120ms ease, border-color 120ms ease, color 120ms ease;
+  white-space: nowrap;
+}
+
+:global(.ds-button--sm) { min-height: 2rem; padding: 0.375rem 0.625rem; }
+:global(.ds-button--md) { min-height: 2.5rem; padding: 0.625rem 0.875rem; }
+:global(.ds-button--lg) { min-height: 3rem; padding: 0.75rem 1.125rem; }
+:global(.ds-button--primary) { background: var(--ds-color-primary); color: var(--ds-color-on-primary); }
+:global(.ds-button--primary):hover:not(:disabled) { background: var(--ds-color-primary-hover); }
+:global(.ds-button--secondary) { background: var(--ds-color-surface); border-color: var(--ds-color-border); color: var(--ds-color-text); }
+:global(.ds-button--secondary):hover:not(:disabled) { background: color-mix(in srgb, var(--ds-color-primary) 8%, var(--ds-color-surface)); }
+:global(.ds-button--ghost) { background: transparent; color: var(--ds-color-text); }
+:global(.ds-button--ghost):hover:not(:disabled) { background: color-mix(in srgb, var(--ds-color-primary) 8%, transparent); }
+:global(.ds-button--danger) { background: var(--ds-color-danger); color: #fff; }
+:global(.ds-button--danger):hover:not(:disabled) { filter: brightness(0.9); }
+:global(.ds-button):focus-visible { outline: 2px solid var(--ds-color-focus); outline-offset: 2px; }
+:global(.ds-button):disabled { cursor: not-allowed; opacity: 0.56; }
+:global(.ds-button__spinner) { border: 2px solid currentColor; border-right-color: transparent; border-radius: 50%; height: 0.875rem; width: 0.875rem; animation: ds-button-spin 650ms linear infinite; }
+@keyframes ds-button-spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { :global(.ds-button), :global(.ds-button__spinner) { transition: none; animation-duration: 1.5s; } }

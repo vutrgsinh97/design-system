@@ -1,0 +1,87 @@
+{
+  "name": "@company/ui-react-web",
+  "version": "0.1.0",
+  "description": "Internal React web UI components",
+  "type": "module",
+  "license": "UNLICENSED",
+  "files": ["dist"],
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./button": {
+      "types": "./dist/components/Button.d.ts",
+      "import": "./dist/components/Button.js"
+    },
+    "./input": {
+      "types": "./dist/components/Input.d.ts",
+      "import": "./dist/components/Input.js"
+    },
+    "./textarea": {
+      "types": "./dist/components/Textarea.d.ts",
+      "import": "./dist/components/Textarea.js"
+    },
+    "./checkbox": {
+      "types": "./dist/components/Checkbox.d.ts",
+      "import": "./dist/components/Checkbox.js"
+    },
+    "./radio": {
+      "types": "./dist/components/Radio.d.ts",
+      "import": "./dist/components/Radio.js"
+    },
+    "./switch": {
+      "types": "./dist/components/Switch.d.ts",
+      "import": "./dist/components/Switch.js"
+    },
+    "./select": {
+      "types": "./dist/components/Select.d.ts",
+      "import": "./dist/components/Select.js"
+    },
+    "./card": {
+      "types": "./dist/components/Card.d.ts",
+      "import": "./dist/components/Card.js"
+    },
+    "./badge": {
+      "types": "./dist/components/Badge.d.ts",
+      "import": "./dist/components/Badge.js"
+    },
+    "./alert": {
+      "types": "./dist/components/Alert.d.ts",
+      "import": "./dist/components/Alert.js"
+    },
+    "./spinner": {
+      "types": "./dist/components/Spinner.d.ts",
+      "import": "./dist/components/Spinner.js"
+    },
+    "./divider": {
+      "types": "./dist/components/Divider.d.ts",
+      "import": "./dist/components/Divider.js"
+    },
+    "./text": {
+      "types": "./dist/components/Text.d.ts",
+      "import": "./dist/components/Text.js"
+    },
+    "./dialog": {
+      "types": "./dist/components/Dialog.d.ts",
+      "import": "./dist/components/Dialog.js"
+    },
+    "./theme.css": "./dist/styles/theme.css"
+  },
+  "sideEffects": ["**/*.css"],
+  "scripts": {
+    "clean": "node scripts/clean.mjs",
+    "build": "pnpm clean && tsc -p tsconfig.build.json && node scripts/copy-css.mjs",
+    "dev": "node scripts/watch.mjs",
+    "typecheck": "tsc -p tsconfig.build.json --noEmit",
+    "prepack": "pnpm build"
+  },
+  "peerDependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "dependencies": {
+    "@radix-ui/react-dialog": "^1.1.0"
+  }
+}

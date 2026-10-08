@@ -1,0 +1,8 @@
+* { box-sizing: border-box; }
+body { background: var(--ds-color-background); color: var(--ds-color-text); font-family: var(--ds-font-family); margin: 0; }
+.demo { margin: 0 auto; max-width: 56rem; padding: 3rem 1.5rem; }
+.demo h1 { font-size: clamp(2rem, 4vw, 3rem); margin: 0.75rem 0 0.25rem; }
+.demo-card { display: grid; gap: 1.5rem; margin-top: 2rem; }
+.demo-row { align-items: center; display: flex; flex-wrap: wrap; gap: 1rem; }
+.demo-fields { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); }
+.demo-fields label { display: grid; font-size: 0.875rem; font-weight: 600; gap: 0.4rem; }

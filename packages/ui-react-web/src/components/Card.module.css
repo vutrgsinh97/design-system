@@ -1,0 +1,2 @@
+.scope {}
+:global(.ds-card) { background: var(--ds-color-surface); border: 1px solid var(--ds-color-border); border-radius: var(--ds-radius-lg); color: var(--ds-color-text); padding: 1.25rem; }

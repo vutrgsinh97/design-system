@@ -1,0 +1,6 @@
+* { box-sizing: border-box; }
+body { background: var(--ds-color-background); color: var(--ds-color-text); font-family: var(--ds-font-family); margin: 0; }
+main { margin: 3rem auto; max-width: 40rem; padding: 0 1rem; }
+main > h1 { font-size: 2rem; }
+.ds-card { display: grid; gap: 1.25rem; }
+label { display: grid; font-size: 0.875rem; gap: 0.4rem; }

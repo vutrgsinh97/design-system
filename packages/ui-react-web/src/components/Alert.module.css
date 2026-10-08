@@ -1,0 +1,6 @@
+.scope {}
+:global(.ds-alert) { border: 1px solid currentColor; border-radius: var(--ds-radius-md); font: 400 0.875rem/1.5 var(--ds-font-family); padding: 0.875rem 1rem; }
+:global(.ds-alert--info) { background: color-mix(in srgb, var(--ds-color-primary) 8%, var(--ds-color-surface)); color: var(--ds-color-primary); }
+:global(.ds-alert--success) { background: var(--ds-color-success-soft); color: var(--ds-color-success); }
+:global(.ds-alert--warning) { background: var(--ds-color-warning-soft); color: var(--ds-color-warning); }
+:global(.ds-alert--danger) { background: var(--ds-color-danger-soft); color: var(--ds-color-danger); }

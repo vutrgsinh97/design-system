@@ -1,0 +1,9 @@
+node_modules/
+dist/
+.next/
+.turbo/
+.pnpm-store/
+*.tgz
+.DS_Store
+*.tsbuildinfo
+work/
