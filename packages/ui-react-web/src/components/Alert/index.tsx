@@ -1,5 +1,5 @@
 import { forwardRef, type HTMLAttributes } from 'react'
-import '../styles/theme.css'
+import '../../styles/theme.css'
 import styles from './Alert.module.css'
 
 export type AlertProps = HTMLAttributes<HTMLDivElement> & {

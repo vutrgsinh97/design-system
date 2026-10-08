@@ -1,5 +1,5 @@
 import type { HTMLAttributes } from 'react'
-import '../styles/theme.css'
+import '../../styles/theme.css'
 import styles from './Text.module.css'
 
 export type TextProps = HTMLAttributes<HTMLElement> & {

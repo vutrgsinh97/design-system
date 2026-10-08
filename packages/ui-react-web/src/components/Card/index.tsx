@@ -1,5 +1,5 @@
 import { forwardRef, type HTMLAttributes } from 'react'
-import '../styles/theme.css'
+import '../../styles/theme.css'
 import styles from './Card.module.css'
 
 export type CardProps = HTMLAttributes<HTMLDivElement>

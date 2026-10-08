@@ -1,5 +1,5 @@
 import { forwardRef, type InputHTMLAttributes, type ReactNode } from 'react'
-import '../styles/theme.css'
+import '../../styles/theme.css'
 import styles from './Switch.module.css'
 
 export type SwitchProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'type' | 'role'> & { children?: ReactNode }

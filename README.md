@@ -7,6 +7,7 @@ One Git repository for shared UI packages. The first published package is `@comp
 | Path | Purpose |
 | --- | --- |
 | `packages/ui-react-web` | React web components, types, CSS, package exports |
+| `packages/ui-react-web/src/components/<Name>` | One folder per component, with `index.tsx` and `<Name>.module.css` |
 | `apps/next-example` | Next.js integration and SSR check |
 | `apps/vite-example` | Vite integration check |
 | `apps/vite-example/scripts/check-bundle.mjs` | Proves a Button-only Vite build excludes Dialog and Radix |
@@ -26,7 +27,7 @@ pnpm dev:next
 # or: pnpm dev:vite
 ```
 
-The example apps use `workspace:*`, so they consume the local package. The dev command runs the package compiler in watch mode and copies CSS changes into `dist`.
+The example apps use `workspace:*`, so they consume the local package. The dev command polls package sources and rebuilds JS, types, and CSS into `dist` when they change.
 
 For a consumer in a separate repository, run `pnpm add /absolute/path/to/design-system/packages/ui-react-web` in that consumer. pnpm 11 links a local directory, so the app sees rebuilt files while `pnpm --filter @company/ui-react-web dev` runs here. Restore the registry dependency and lockfile before committing the consumer. Run `pnpm --filter @company/ui-react-web pack` to verify the actual published files.
 

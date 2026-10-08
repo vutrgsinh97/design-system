@@ -1,5 +1,5 @@
 import { forwardRef, type InputHTMLAttributes } from 'react'
-import '../styles/theme.css'
+import '../../styles/theme.css'
 import styles from './Input.module.css'
 
 export type InputProps = InputHTMLAttributes<HTMLInputElement> & { invalid?: boolean }

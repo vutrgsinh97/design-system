@@ -1,5 +1,5 @@
 import { forwardRef, type InputHTMLAttributes, type ReactNode } from 'react'
-import '../styles/theme.css'
+import '../../styles/theme.css'
 import styles from './Checkbox.module.css'
 
 export type CheckboxProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'type'> & { children?: ReactNode }

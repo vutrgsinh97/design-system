@@ -1,5 +1,5 @@
 import { forwardRef, type ButtonHTMLAttributes, type ReactNode } from 'react'
-import '../styles/theme.css'
+import '../../styles/theme.css'
 import styles from './Button.module.css'
 
 export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {

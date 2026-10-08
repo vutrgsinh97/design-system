@@ -12,60 +12,60 @@
       "import": "./dist/index.js"
     },
     "./button": {
-      "types": "./dist/components/Button.d.ts",
-      "import": "./dist/components/Button.js"
+      "types": "./dist/components/Button/index.d.ts",
+      "import": "./dist/components/Button/index.js"
     },
     "./input": {
-      "types": "./dist/components/Input.d.ts",
-      "import": "./dist/components/Input.js"
+      "types": "./dist/components/Input/index.d.ts",
+      "import": "./dist/components/Input/index.js"
     },
     "./textarea": {
-      "types": "./dist/components/Textarea.d.ts",
-      "import": "./dist/components/Textarea.js"
+      "types": "./dist/components/Textarea/index.d.ts",
+      "import": "./dist/components/Textarea/index.js"
     },
     "./checkbox": {
-      "types": "./dist/components/Checkbox.d.ts",
-      "import": "./dist/components/Checkbox.js"
+      "types": "./dist/components/Checkbox/index.d.ts",
+      "import": "./dist/components/Checkbox/index.js"
     },
     "./radio": {
-      "types": "./dist/components/Radio.d.ts",
-      "import": "./dist/components/Radio.js"
+      "types": "./dist/components/Radio/index.d.ts",
+      "import": "./dist/components/Radio/index.js"
     },
     "./switch": {
-      "types": "./dist/components/Switch.d.ts",
-      "import": "./dist/components/Switch.js"
+      "types": "./dist/components/Switch/index.d.ts",
+      "import": "./dist/components/Switch/index.js"
     },
     "./select": {
-      "types": "./dist/components/Select.d.ts",
-      "import": "./dist/components/Select.js"
+      "types": "./dist/components/Select/index.d.ts",
+      "import": "./dist/components/Select/index.js"
     },
     "./card": {
-      "types": "./dist/components/Card.d.ts",
-      "import": "./dist/components/Card.js"
+      "types": "./dist/components/Card/index.d.ts",
+      "import": "./dist/components/Card/index.js"
     },
     "./badge": {
-      "types": "./dist/components/Badge.d.ts",
-      "import": "./dist/components/Badge.js"
+      "types": "./dist/components/Badge/index.d.ts",
+      "import": "./dist/components/Badge/index.js"
     },
     "./alert": {
-      "types": "./dist/components/Alert.d.ts",
-      "import": "./dist/components/Alert.js"
+      "types": "./dist/components/Alert/index.d.ts",
+      "import": "./dist/components/Alert/index.js"
     },
     "./spinner": {
-      "types": "./dist/components/Spinner.d.ts",
-      "import": "./dist/components/Spinner.js"
+      "types": "./dist/components/Spinner/index.d.ts",
+      "import": "./dist/components/Spinner/index.js"
     },
     "./divider": {
-      "types": "./dist/components/Divider.d.ts",
-      "import": "./dist/components/Divider.js"
+      "types": "./dist/components/Divider/index.d.ts",
+      "import": "./dist/components/Divider/index.js"
     },
     "./text": {
-      "types": "./dist/components/Text.d.ts",
-      "import": "./dist/components/Text.js"
+      "types": "./dist/components/Text/index.d.ts",
+      "import": "./dist/components/Text/index.js"
     },
     "./dialog": {
-      "types": "./dist/components/Dialog.d.ts",
-      "import": "./dist/components/Dialog.js"
+      "types": "./dist/components/Dialog/index.d.ts",
+      "import": "./dist/components/Dialog/index.js"
     },
     "./theme.css": "./dist/styles/theme.css"
   },

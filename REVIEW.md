@@ -19,6 +19,7 @@ Adapted for this UI library from the [Front-End Checklist](https://github.com/th
 
 ## Styling and performance
 
+- [ ] A component keeps its implementation and CSS together in `src/components/<Name>/`.
 - [ ] Styles are scoped with `ds-` names and use shared tokens.
 - [ ] Component CSS does not affect unrelated MFE elements.
 - [ ] Button-only bundle excludes Dialog, Radix, and Dialog CSS.

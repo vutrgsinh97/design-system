@@ -1,5 +1,5 @@
 import { forwardRef, type SelectHTMLAttributes } from 'react'
-import '../styles/theme.css'
+import '../../styles/theme.css'
 import styles from './Select.module.css'
 
 export type SelectProps = SelectHTMLAttributes<HTMLSelectElement> & { invalid?: boolean }

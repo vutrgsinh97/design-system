@@ -1,5 +1,5 @@
 import { forwardRef, type HTMLAttributes } from 'react'
-import '../styles/theme.css'
+import '../../styles/theme.css'
 import styles from './Divider.module.css'
 
 export type DividerProps = HTMLAttributes<HTMLHRElement>

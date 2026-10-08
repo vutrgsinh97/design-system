@@ -2,7 +2,7 @@
 
 import { forwardRef, type ComponentPropsWithoutRef, type ElementRef } from 'react'
 import * as Primitive from '@radix-ui/react-dialog'
-import '../styles/theme.css'
+import '../../styles/theme.css'
 import styles from './Dialog.module.css'
 
 export const Dialog = Primitive.Root

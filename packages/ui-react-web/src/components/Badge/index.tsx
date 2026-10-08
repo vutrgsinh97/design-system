@@ -1,5 +1,5 @@
 import { forwardRef, type HTMLAttributes } from 'react'
-import '../styles/theme.css'
+import '../../styles/theme.css'
 import styles from './Badge.module.css'
 
 export type BadgeProps = HTMLAttributes<HTMLSpanElement> & {

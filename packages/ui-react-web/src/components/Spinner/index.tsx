@@ -1,5 +1,5 @@
 import { forwardRef, type HTMLAttributes } from 'react'
-import '../styles/theme.css'
+import '../../styles/theme.css'
 import styles from './Spinner.module.css'
 
 export type SpinnerProps = HTMLAttributes<HTMLSpanElement> & {

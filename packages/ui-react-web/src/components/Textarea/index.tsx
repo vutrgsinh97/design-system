@@ -1,5 +1,5 @@
 import { forwardRef, type TextareaHTMLAttributes } from 'react'
-import '../styles/theme.css'
+import '../../styles/theme.css'
 import styles from './Textarea.module.css'
 
 export type TextareaProps = TextareaHTMLAttributes<HTMLTextAreaElement> & { invalid?: boolean }
