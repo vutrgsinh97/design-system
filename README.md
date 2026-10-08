@@ -1,6 +1,6 @@
 # Internal Design System
 
-One Git repository for shared UI packages. The first published package is `@company/ui-react-web`, which is intended for Next.js and Vite React applications. The `@company` scope is a placeholder: replace it with the npm scope owned by your organization before publishing.
+One Git repository for shared UI packages. The first package is `@company/ui-react-web`, which is intended for Next.js and Vite React applications. The `@company` scope is a placeholder: replace it with the npm scope owned by your organization before publishing.
 
 ## Layout
 
@@ -16,20 +16,38 @@ One Git repository for shared UI packages. The first published package is `@comp
 
 Add Vue, Angular, React Native, or Flutter packages when a real consumer needs them. Shared tokens can be extracted into a separate package at that point. The React web package remains the only package a React consumer installs.
 
-## Local development
+## Quick start: open the playground
 
-Requirements: Node.js 22 and pnpm 11.
+Requirements: Node.js 22 and pnpm 11. Run these commands from the repository root:
 
 ```sh
 pnpm install
-pnpm check
-pnpm dev:next
-# or: pnpm dev:vite
+pnpm dev:playground
 ```
 
-The example apps use `workspace:*`, so they consume the local package. The dev command polls package sources and rebuilds JS, types, and CSS into `dist` when they change.
+Open the URL printed by Next.js in the terminal (normally [http://localhost:3000](http://localhost:3000)). The playground is `apps/next-example`: it shows Button variants, form controls, status components, and a Dialog you can open and close. If port 3000 is occupied, use the URL Next.js prints instead. Press `Ctrl+C` in the terminal to stop both the app and package watcher.
 
-For a consumer in a separate repository, run `pnpm add /absolute/path/to/design-system/packages/ui-react-web` in that consumer. pnpm 11 links a local directory, so the app sees rebuilt files while `pnpm --filter @company/ui-react-web dev` runs here. Restore the registry dependency and lockfile before committing the consumer. Run `pnpm --filter @company/ui-react-web pack` to verify the actual published files.
+For the smaller Vite demo, stop the Next.js command and run:
+
+```sh
+pnpm dev:vite
+```
+
+Open the URL printed by Vite (normally [http://localhost:5173](http://localhost:5173)). The Vite page is in `apps/vite-example/src/App.tsx`; the fuller Next.js playground is in `apps/next-example/app/page.tsx`.
+
+Both apps depend on the local package through `workspace:*`. The dev command builds the UI package first, then polls its source and rebuilds JS, types, and CSS when files change. Refresh the browser if your dev server does not pick up a rebuilt package file automatically.
+
+To verify the package without starting a server:
+
+```sh
+pnpm check
+pnpm --filter next-example build
+pnpm --filter vite-example build
+```
+
+## Use this package in another repository
+
+Run `pnpm add /absolute/path/to/design-system/packages/ui-react-web` in the consumer. pnpm 11 links a local directory, so the app sees rebuilt files while `pnpm --filter @company/ui-react-web dev` runs in this repository. Restore the registry dependency and lockfile before committing the consumer. Run `pnpm --filter @company/ui-react-web pack` to verify the actual published files.
 
 ## Consumer API
 
