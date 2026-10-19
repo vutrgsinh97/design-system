@@ -1,8 +1,8 @@
 'use client'
 
 import { useState } from 'react'
-import { Badge, Button, Card, CardContent, CardHeader, CardTitle, Combobox, SplitPane, Text } from '@company/ui-react-web/desktop'
-import type { ComboboxOptionData } from '@company/ui-react-web/desktop'
+import { Badge, Button, Card, CardContent, CardHeader, CardTitle, Combobox, SplitPane, Text } from '@vutrgsinh97/ui-react-web/desktop'
+import type { ComboboxOptionData } from '@vutrgsinh97/ui-react-web/desktop'
 import styles from './desktop-workspace-controls.module.css'
 
 const allOptions: ComboboxOptionData[] = [

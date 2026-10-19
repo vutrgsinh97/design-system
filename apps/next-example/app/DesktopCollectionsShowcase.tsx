@@ -1,6 +1,6 @@
 'use client'
 
-import { Badge, Button, Card, CardContent, CardFooter, CardHeader, CardTitle, DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger, List, ListItem, Table, TableActions, TableBody, TableCell, TableHeader, TableHeaderCell, TableRow } from '@company/ui-react-web/desktop'
+import { Badge, Button, Card, CardContent, CardFooter, CardHeader, CardTitle, DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger, List, ListItem, Table, TableActions, TableBody, TableCell, TableHeader, TableHeaderCell, TableRow } from '@vutrgsinh97/ui-react-web/desktop'
 
 export function DesktopCollectionsShowcase() {
   return (

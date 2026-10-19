@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import '@company/ui-react-web/theme.css'
+import '@vutrgsinh97/ui-react-web/theme.css'
 import './globals.css'
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {

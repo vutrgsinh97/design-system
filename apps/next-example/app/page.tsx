@@ -25,7 +25,7 @@ import {
   Switch,
   Text,
   Textarea
-} from '@company/ui-react-web/desktop'
+} from '@vutrgsinh97/ui-react-web/desktop'
 
 export default function Home() {
   return (

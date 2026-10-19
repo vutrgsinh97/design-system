@@ -1,3 +1,3 @@
-import { Progress } from '@company/ui-react-web/desktop/progress'
+import { Progress } from '@vutrgsinh97/ui-react-web/desktop/progress'
 
 export const demo = <Progress label="Loading" value={40} />

@@ -15,7 +15,7 @@ if (iconFiles.length === 0) {
 const iconName = iconFiles[0].slice(0, -3)
 const result = await build({
   stdin: {
-    contents: `import Icon from '@company/icons-react/${iconName}'; console.log(Icon)`,
+    contents: `import Icon from '@vutrgsinh97/icons-react/${iconName}'; console.log(Icon)`,
     resolveDir: root,
     sourcefile: 'icon-only.tsx',
     loader: 'tsx'

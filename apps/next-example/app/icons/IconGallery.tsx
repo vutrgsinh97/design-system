@@ -27,7 +27,7 @@ export function IconGallery({ icons }: { icons: IconEntry[] }) {
   useEffect(() => { setVisibleCount(pageSize) }, [query])
 
   async function copyImport(icon: IconEntry) {
-    const statement = `import { ${icon.componentName} } from '@company/icons-react/${icon.name}'`
+    const statement = `import { ${icon.componentName} } from '@vutrgsinh97/icons-react/${icon.name}'`
     try {
       await navigator.clipboard.writeText(statement)
       setCopiedName(icon.name)

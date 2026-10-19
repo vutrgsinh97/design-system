@@ -23,7 +23,7 @@ import {
   TooltipContent,
   TooltipProvider,
   TooltipTrigger
-} from '@company/ui-react-web/desktop'
+} from '@vutrgsinh97/ui-react-web/desktop'
 import styles from './primitives.module.css'
 
 export function PrimitiveGallery() {

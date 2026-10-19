@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { Button, type ButtonVariant } from '@company/ui-react-web/button'
+import { Button, type ButtonVariant } from '@vutrgsinh97/ui-react-web/button'
 
 const variants: { name: string; variant: ButtonVariant }[] = [
   { name: 'Primary', variant: 'primary' },

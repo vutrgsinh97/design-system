@@ -22,7 +22,7 @@ import {
   Switch,
   Text,
   Textarea
-} from '@company/ui-react-web/mobile'
+} from '@vutrgsinh97/ui-react-web/mobile'
 
 export default function MobilePlayground() {
   return (

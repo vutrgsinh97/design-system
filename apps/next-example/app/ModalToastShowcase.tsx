@@ -16,7 +16,7 @@ import {
   Select,
   type ToastPosition,
   type ToastStatus
-} from '@company/ui-react-web/desktop'
+} from '@vutrgsinh97/ui-react-web/desktop'
 import styles from './modal-toast-showcase.module.css'
 
 const positions: ToastPosition[] = [

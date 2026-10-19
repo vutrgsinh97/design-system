@@ -1,31 +1,33 @@
 # Devtool Control UI: Tauri + React + TypeScript
 
-This guide integrates the desktop UI packages into a Tauri frontend. The examples use pnpm and the package names `@company/ui-react-web` and `@company/icons-react`. The `@company` scope is a placeholder; use the exact package files and versions delivered with your application. No registry publishing is required.
+This guide integrates the desktop UI packages into a Tauri frontend. The examples use pnpm and the package names `@vutrgsinh97/ui-react-web` and `@vutrgsinh97/icons-react`, published to GitHub Packages.
 
-## Install a fixed package build
+## Install from GitHub Packages
 
-Keep the UI package archive in a versioned local folder such as `vendor/` (or place it beside the consumer during development). Install the UI package from that local tarball:
+Create a GitHub personal access token (classic) with the `read:packages` scope and expose it as `GITHUB_PACKAGES_TOKEN`. Add an `.npmrc` beside the consumer's `package.json`; it references the variable, never the token itself:
 
-```sh
-pnpm add ./vendor/company-ui-react-web-0.1.0-panel-preview-v2.tgz
+```ini
+@vutrgsinh97:registry=https://npm.pkg.github.com
+//npm.pkg.github.com/:_authToken=${GITHUB_PACKAGES_TOKEN}
 ```
 
-If the app uses the companion icon package, install its matching tarball separately:
+Then install the UI package, and the icon package only if the app uses it:
 
 ```sh
-pnpm add ./vendor/company-icons-react-0.1.0.tgz
+pnpm add @vutrgsinh97/ui-react-web
+pnpm add @vutrgsinh97/icons-react
 ```
 
-For active local development, a directory dependency is also supported:
+In the consumer's CI, set `GITHUB_PACKAGES_TOKEN` from a repository secret. Commit `package.json` and `pnpm-lock.yaml` so every build resolves the same version. Keep React and React DOM installed by the Tauri app itself; the UI package declares them as peers. The UI components require React 19. Build a Windows, macOS, or Linux Tauri bundle from the normal frontend build script after installing the packages; Tauri does not need a separate UI runtime integration.
+
+For active local development against a design-system checkout, a directory dependency is also supported:
 
 ```sh
 pnpm add ../design-system/packages/ui-react-web
 pnpm add ../design-system/packages/icons-react
 ```
 
-Use the directory form only while developing against that checkout. For a repeatable application build, install the delivered tarball and commit `package.json` and `pnpm-lock.yaml`. Keep React and React DOM installed by the Tauri app itself; the UI package declares them as peers. The UI components require React 19. Build a Windows, macOS, or Linux Tauri bundle from the normal frontend build script after installing the packages; Tauri does not need a separate UI runtime integration.
-
-After changing the pinned UI package, update the local tarball and dependency entry, then run `pnpm install` to refresh the lockfile. Review the resulting package diff and rebuild the frontend and Tauri app. Do not replace the local archive with a moving branch or registry range in a release build.
+Use the directory form only while developing; switch back to the published version before a release build.
 
 ## Load the theme and apply a desktop theme
 
@@ -33,7 +35,7 @@ Import the shared theme once from the frontend entry point, before the app style
 
 ```tsx
 // src/main.tsx
-import '@company/ui-react-web/theme.css'
+import '@vutrgsinh97/ui-react-web/theme.css'
 import './theme-overrides.css'
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
@@ -70,7 +72,7 @@ You can brand semantic tokens in your own CSS without editing the package. Keep 
 }
 ```
 
-The Button color configuration derives its defaults from these semantic tokens. If you need a separate Button palette, `@company/ui-react-web/button-colors.css` is also a public stylesheet subpath; import it once and override its `--ds-button-*` variables in the app stylesheet.
+The Button color configuration derives its defaults from these semantic tokens. If you need a separate Button palette, `@vutrgsinh97/ui-react-web/button-colors.css` is also a public stylesheet subpath; import it once and override its `--ds-button-*` variables in the app stylesheet.
 
 ## Import only public entry points
 
@@ -99,15 +101,15 @@ import {
   TooltipContent,
   TooltipProvider,
   TooltipTrigger
-} from '@company/ui-react-web/desktop'
+} from '@vutrgsinh97/ui-react-web/desktop'
 ```
 
-The legacy package root has the same desktop exports. For a small isolated import, the package also provides public subpaths such as `@company/ui-react-web/button`, `@company/ui-react-web/desktop/dialog`, and `@company/ui-react-web/desktop/combobox`. Do not import files from `src/` or `dist/` directly; those paths are package internals.
+The legacy package root has the same desktop exports. For a small isolated import, the package also provides public subpaths such as `@vutrgsinh97/ui-react-web/button`, `@vutrgsinh97/ui-react-web/desktop/dialog`, and `@vutrgsinh97/ui-react-web/desktop/combobox`. Do not import files from `src/` or `dist/` directly; those paths are package internals.
 
 The icon package is separate and exposes one import per icon. For example:
 
 ```tsx
-import { ArchiveIcon } from '@company/icons-react/archive'
+import { ArchiveIcon } from '@vutrgsinh97/icons-react/archive'
 ```
 
 The icons package has no runtime registry of all icons. Import only the icon subpaths used by the app. If you do not install it, the UI controls still work: `Button` accepts any React node for `icon`, `startIcon`, or `endIcon`.
@@ -127,8 +129,8 @@ import {
   CardTitle,
   FormField,
   Input
-} from '@company/ui-react-web/desktop'
-import { ArchiveIcon } from '@company/icons-react/archive'
+} from '@vutrgsinh97/ui-react-web/desktop'
+import { ArchiveIcon } from '@vutrgsinh97/icons-react/archive'
 
 export function WorkspaceCard() {
   const [name, setName] = useState('')
@@ -168,8 +170,8 @@ Native input attributes such as `value`, `defaultValue`, `onChange`, `disabled`,
 The desktop `Panel` exposes a header, content, and optional footer. Add `PanelBackButton` only when the screen has a back action, and add `PanelActions` only when the header needs controls. The back button renders only a left-arrow icon; its accessible label and navigation callback come from the app. Panel width is controlled by its parent layout.
 
 ```tsx
-import { Button } from '@company/ui-react-web/button'
-import { Panel, PanelHeader, PanelBackButton, PanelTitle, PanelActions, PanelContent, PanelFooter } from '@company/ui-react-web/desktop/panel'
+import { Button } from '@vutrgsinh97/ui-react-web/button'
+import { Panel, PanelHeader, PanelBackButton, PanelTitle, PanelActions, PanelContent, PanelFooter } from '@vutrgsinh97/ui-react-web/desktop/panel'
 
 export function SettingsPanel({ onBack }: { onBack: () => void }) {
   return (
@@ -205,7 +207,7 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger
-} from '@company/ui-react-web/desktop'
+} from '@vutrgsinh97/ui-react-web/desktop'
 
 export function ConfirmDialog() {
   const [open, setOpen] = useState(false)
@@ -240,8 +242,8 @@ export function ConfirmDialog() {
 Use `Modal` when an interaction needs a title, supplied content, and action footer. A single Modal can render information or a destructive confirmation; the application owns what the buttons do:
 
 ```tsx
-import { Button } from '@company/ui-react-web/button'
-import { Modal } from '@company/ui-react-web/modal'
+import { Button } from '@vutrgsinh97/ui-react-web/button'
+import { Modal } from '@vutrgsinh97/ui-react-web/modal'
 
 <Modal
   open={open}
@@ -257,7 +259,7 @@ import { Modal } from '@company/ui-react-web/modal'
 For a small notification that does not block the page, use Toast. Mount one viewport under a provider; choose its position and give each notification a status. Other positions are `top-left`, `top-center`, `bottom-left`, `bottom-center`, and `bottom-right`.
 
 ```tsx
-import { ToastProvider, Toast, ToastTitle, ToastDescription, ToastClose, ToastViewport } from '@company/ui-react-web/toast'
+import { ToastProvider, Toast, ToastTitle, ToastDescription, ToastClose, ToastViewport } from '@vutrgsinh97/ui-react-web/toast'
 
 <ToastProvider>
   <Toast open={open} onOpenChange={setOpen} status="success" duration={4000}>
@@ -273,7 +275,7 @@ Available statuses are `info`, `success`, `warning`, and `error`. The earlier `v
 For feedback while an existing task runs, use `PromiseToast` inside the same provider. The consumer starts and handles the Promise; the component only displays a spinner while it is pending and changes to the supplied success or error content after settlement. Pending feedback stays visible until the task settles or the user dismisses it. The result auto-dismisses after `resultDuration` milliseconds (4000 by default). Pass a new `key` for each task when rendering a list of notifications.
 
 ```tsx
-import { PromiseToast, ToastProvider, ToastViewport } from '@company/ui-react-web/toast'
+import { PromiseToast, ToastProvider, ToastViewport } from '@vutrgsinh97/ui-react-web/toast'
 
 <ToastProvider>
   {task && (
@@ -307,6 +309,6 @@ React and React DOM are peer dependencies and should not be duplicated in the Ta
 
 Import `theme.css` globally once; component CSS is loaded through component imports. Avoid copying package CSS into the app or importing internal CSS module files. Do not dynamically resolve icon names from a string: import an explicit icon subpath to retain tree shaking.
 
-## Update the pinned build
+## Update the package version
 
-When the design-system release provides a replacement archive, update the local tarball file and versioned dependency, run `pnpm install`, review the lockfile changes, and run the consumer's typecheck, tests, frontend production build, and Tauri packaging check. Keep a known-good prior archive available for rollback until the replacement build has passed those checks. The current verified Panel preview archive is `release-candidates/company-ui-react-web-0.1.0-panel-preview-v2.tgz` (SHA-256 `06d244feaca67951d4b1f59f216645c5c537a3355369408270c7ddf26337ca70`). The earlier `release-candidates/company-ui-react-web-0.1.0.tgz` predates Panel and remains available for comparison. Copy the Panel preview archive into the consumer's versioned `vendor/` directory before using the install command above. This preview archive retains internal package version `0.1.0` and is pinned by its local file checksum; it has not been published to a registry.
+Check the design-system CHANGELOG, then run `pnpm update @vutrgsinh97/ui-react-web` (and `@vutrgsinh97/icons-react` if installed). Review the lockfile changes, and run the consumer's typecheck, tests, frontend production build, and Tauri packaging check. To roll back, pin the previous version in `package.json` and reinstall.

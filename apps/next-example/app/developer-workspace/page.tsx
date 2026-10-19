@@ -34,7 +34,7 @@ import {
   ToastViewport,
   Tree,
   TreeItem,
-} from '@company/ui-react-web/desktop'
+} from '@vutrgsinh97/ui-react-web/desktop'
 import styles from './workspace.module.css'
 
 const files = [

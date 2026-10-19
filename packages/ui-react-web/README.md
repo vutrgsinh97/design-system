@@ -1,9 +1,9 @@
-# @company/ui-react-web
+# @vutrgsinh97/ui-react-web
 
-Internal React web UI package for Next.js and Vite. Replace the placeholder `@company` scope before publishing.
+Internal React web UI package for Next.js and Vite. Published to GitHub Packages; see the root README for install and release steps.
 
 ```tsx
-import { Button, FormField, Input, Card, CardHeader, CardTitle, CardContent } from '@company/ui-react-web'
+import { Button, FormField, Input, Card, CardHeader, CardTitle, CardContent } from '@vutrgsinh97/ui-react-web'
 
 <Card>
   <CardHeader><CardTitle>Profile</CardTitle></CardHeader>
@@ -11,7 +11,7 @@ import { Button, FormField, Input, Card, CardHeader, CardTitle, CardContent } fr
 </Card>
 ```
 
-Controls under `src/primitives` are shared by desktop and mobile web. Card, Alert, and Dialog have separate desktop/mobile implementations. Import mobile compositions from `@company/ui-react-web/mobile` and set `data-ds-platform="mobile"` on the mobile route/container to enable mobile control styles. Direct paths such as `/button`, `/label`, `/form-field`, `/desktop/card`, and `/mobile/card` are available. The root path remains the desktop composite alias.
+Controls under `src/primitives` are shared by desktop and mobile web. Card, Alert, and Dialog have separate desktop/mobile implementations. Import mobile compositions from `@vutrgsinh97/ui-react-web/mobile` and set `data-ds-platform="mobile"` on the mobile route/container to enable mobile control styles. Direct paths such as `/button`, `/label`, `/form-field`, `/desktop/card`, and `/mobile/card` are available. The root path remains the desktop composite alias.
 
 See the workspace [README](../../README.md) for playground commands, local development, publishing, and bundle verification.
 
@@ -46,8 +46,8 @@ The desktop entry and direct `desktop/<component>` subpaths provide Tabs, Toolti
 `Panel` composes a header and content with optional slots. Omit `PanelBackButton`, `PanelActions`, or `PanelFooter` when the screen does not need them. Back is an icon-only Button with a required accessible name; the consumer supplies its `onClick` navigation. Header actions and footer contents are ordinary React children, so the package does not impose Save/Cancel behavior or a fixed panel width.
 
 ```tsx
-import { Button } from '@company/ui-react-web/button'
-import { Panel, PanelHeader, PanelBackButton, PanelTitle, PanelActions, PanelContent, PanelFooter } from '@company/ui-react-web/desktop/panel'
+import { Button } from '@vutrgsinh97/ui-react-web/button'
+import { Panel, PanelHeader, PanelBackButton, PanelTitle, PanelActions, PanelContent, PanelFooter } from '@vutrgsinh97/ui-react-web/desktop/panel'
 
 <Panel aria-labelledby="settings-title">
   <PanelHeader>

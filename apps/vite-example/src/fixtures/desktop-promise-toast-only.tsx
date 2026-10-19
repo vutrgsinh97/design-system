@@ -1,4 +1,4 @@
-import { PromiseToast, ToastProvider, ToastViewport } from '@company/ui-react-web/desktop/toast'
+import { PromiseToast, ToastProvider, ToastViewport } from '@vutrgsinh97/ui-react-web/desktop/toast'
 
 export const demo = (
   <ToastProvider>

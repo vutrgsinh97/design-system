@@ -22,4 +22,4 @@ jobs:
       - run: pnpm --filter vite-example build
       - run: pnpm --filter next-example build
       - run: pnpm --filter next-mobile-example build
-      - run: pnpm --filter @company/ui-react-web pack --pack-destination ../../
+      - run: pnpm --filter @vutrgsinh97/ui-react-web pack --pack-destination ../../

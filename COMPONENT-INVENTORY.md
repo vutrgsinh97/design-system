@@ -1,12 +1,12 @@
 # Desktop component inventory
 
-Inventory of the desktop API exported by `@company/ui-react-web/desktop`. The package name uses the repository's placeholder scope; replace `@company` with the publishing organization's scope. `ready` means the export and documented behavior are implemented and covered by the root G1/G2/G3 checks (typecheck, tests, bundle-isolation checks, and example production builds). `partial` means the exported component intentionally covers a smaller scope than a full-featured control. Final browser interaction review and package tarball inspection are recorded in `ai-handoffs/reports/TASK-028.md`; a full assistive-technology audit remains separate. The later Panel and PromiseToast additions are verified in `ai-handoffs/reports/TASK-030.md` and `ai-handoffs/reports/TASK-032.md`.
+Inventory of the desktop API exported by `@vutrgsinh97/ui-react-web/desktop`. `ready` means the export and documented behavior are implemented and covered by the root G1/G2/G3 checks (typecheck, tests, bundle-isolation checks, and example production builds). `partial` means the exported component intentionally covers a smaller scope than a full-featured control. Final browser interaction review and package tarball inspection are recorded in `ai-handoffs/reports/TASK-028.md`; a full assistive-technology audit remains separate. The later Panel and PromiseToast additions are verified in `ai-handoffs/reports/TASK-030.md` and `ai-handoffs/reports/TASK-032.md`.
 
-All imports below are public package entry points. Each named component is available from the desktop umbrella path; component subpaths are listed where the package manifest provides them. Components without a listed subpath use the umbrella import. The root `@company/ui-react-web` barrel also re-exports the desktop API.
+All imports below are public package entry points. Each named component is available from the desktop umbrella path; component subpaths are listed where the package manifest provides them. Components without a listed subpath use the umbrella import. The root `@vutrgsinh97/ui-react-web` barrel also re-exports the desktop API.
 
 | Component(s) | Status | Public import path | Variants and states | Limits / notes |
 | --- | --- | --- | --- | --- |
-| Button | ready | `@company/ui-react-web/desktop`; `/desktop/button` | primary, secondary, outline, ghost, danger; sm/md/lg; loading, disabled, full width, start/end icon, icon-only | Icon-only use requires an accessible label. Compact density is opt-in. |
+| Button | ready | `@vutrgsinh97/ui-react-web/desktop`; `/desktop/button` | primary, secondary, outline, ghost, danger; sm/md/lg; loading, disabled, full width, start/end icon, icon-only | Icon-only use requires an accessible label. Compact density is opt-in. |
 | Input | ready | desktop; `/desktop/input` | Native input types/attributes; invalid, disabled, read-only; prefix/suffix; compact | Prefix and suffix are decorative and hidden from assistive technology, not interactive slots. |
 | Textarea | ready | desktop; `/desktop/textarea` | Native textarea attributes; invalid, disabled; compact | Uses outside labels; no floating-label mode. |
 | Checkbox | ready | desktop; `/desktop/checkbox` | Unchecked, checked, disabled, indeterminate; controlled or native uncontrolled | Indeterminate is set on the native input and reflected accessibly; mobile default remains unchanged. |
@@ -40,6 +40,6 @@ All imports below are public package entry points. Each named component is avail
 ## Shared behavior and package notes
 
 - Desktop compact sizing is opt-in through a containing element with `data-ds-platform="desktop"` and `data-ds-density="compact"`. Default desktop and mobile sizing remains unchanged without those attributes.
-- Components use scoped CSS and shared semantic tokens. The theme stylesheet is available at `@company/ui-react-web/theme.css`.
+- Components use scoped CSS and shared semantic tokens. The theme stylesheet is available at `@vutrgsinh97/ui-react-web/theme.css`.
 - Radix-backed components use component-specific modules for Dialog, Tabs, Tooltip, DropdownMenu, and Toast. Direct component subpaths were checked for bundle isolation; the umbrella import exposes the full desktop API, while production bundlers can remove unused ESM exports when configured for tree shaking.
-- `@company/ui-react-web/mobile` does not export the desktop-only workspace components. Shared primitives remain available through the mobile entry with mobile styling opt-in as documented in the README.
+- `@vutrgsinh97/ui-react-web/mobile` does not export the desktop-only workspace components. Shared primitives remain available through the mobile entry with mobile styling opt-in as documented in the README.

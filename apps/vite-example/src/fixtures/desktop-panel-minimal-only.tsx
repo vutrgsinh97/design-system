@@ -1,4 +1,4 @@
-import { Panel, PanelHeader, PanelTitle, PanelContent } from '@company/ui-react-web/desktop/panel'
+import { Panel, PanelHeader, PanelTitle, PanelContent } from '@vutrgsinh97/ui-react-web/desktop/panel'
 
 export function PanelMinimalOnly() {
   return (

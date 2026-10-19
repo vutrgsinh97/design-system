@@ -1,8 +1,8 @@
 # Design system dùng chung
 
-Repository này chứa UI package cho các ứng dụng React của bạn. `@company/ui-react-web` dùng được trong **web chạy trên trình duyệt** (Next.js, Vite) và frontend React của ứng dụng desktop như Tauri. Từ “desktop” trong tên component chỉ giao diện tối ưu cho màn hình lớn, không giới hạn môi trường chạy. `@company/icons-react` là package icon riêng, chỉ cần cài khi ứng dụng dùng bộ SVG đó.
+Repository này chứa UI package cho các ứng dụng React của bạn. `@vutrgsinh97/ui-react-web` dùng được trong **web chạy trên trình duyệt** (Next.js, Vite) và frontend React của ứng dụng desktop như Tauri. Từ “desktop” trong tên component chỉ giao diện tối ưu cho màn hình lớn, không giới hạn môi trường chạy. `@vutrgsinh97/icons-react` là package icon riêng, chỉ cần cài khi ứng dụng dùng bộ SVG đó.
 
-`@company` hiện là scope mẫu. Hai package chưa được publish lên registry; bạn có thể dùng liên kết local hoặc tarball cố định. Bộ component desktop đã có playground và bản cài thử. Một số composite mobile web đã có, nhưng các component workspace mới chỉ triển khai cho desktop. Vue, Angular, React Native, Flutter và trình kéo thả layout chưa nằm trong source hiện tại.
+Hai package được phát hành lên **GitHub Packages** (`https://npm.pkg.github.com`) qua Changesets; xem [Phát hành](#phát-hành). Bộ component desktop đã có playground và bản cài thử. Một số composite mobile web đã có, nhưng các component workspace mới chỉ triển khai cho desktop. Vue, Angular, React Native, Flutter và trình kéo thả layout chưa nằm trong source hiện tại.
 
 ## Bạn nên đọc phần nào?
 
@@ -54,26 +54,33 @@ Các app ví dụ phụ thuộc package local bằng `workspace:*`. Khi sửa so
 
 ### 1. Chọn cách cài
 
-- **Cùng monorepo pnpm:** thêm `@company/ui-react-web: workspace:*` vào dependencies của app, giống các app trong `apps/`.
-- **Hai repository trên cùng máy, đang phát triển:** chạy `pnpm build` tại design system, rồi chạy `pnpm add /absolute/path/to/design-system/packages/ui-react-web` tại consumer. Khi sửa package, chạy `pnpm --filter @company/ui-react-web dev` tại design system để rebuild. Nếu dùng icon, cài và watch `packages/icons-react` tương tự.
-- **Bản cài thử cố định:** copy `release-candidates/company-ui-react-web-0.1.0-panel-preview-v2.tgz` vào thư mục `vendor/` của consumer, rồi chạy `pnpm add ./vendor/company-ui-react-web-0.1.0-panel-preview-v2.tgz`. Đường dẫn archive và SHA-256 được ghi trong [Consumer guide](CONSUMER-GUIDE.md). Cách này giúp consumer giữ cùng một bản build qua các máy.
+- **Cùng monorepo pnpm:** thêm `@vutrgsinh97/ui-react-web: workspace:*` vào dependencies của app, giống các app trong `apps/`.
+- **Hai repository trên cùng máy, đang phát triển:** chạy `pnpm build` tại design system, rồi chạy `pnpm add /absolute/path/to/design-system/packages/ui-react-web` tại consumer. Khi sửa package, chạy `pnpm --filter @vutrgsinh97/ui-react-web dev` tại design system để rebuild. Nếu dùng icon, cài và watch `packages/icons-react` tương tự.
+- **Cài từ GitHub Packages (khuyến nghị):** tạo personal access token (classic) có quyền `read:packages`, đặt vào biến môi trường `GITHUB_PACKAGES_TOKEN`, rồi thêm `.npmrc` ở consumer:
 
-Ứng dụng cần tự cài React và React DOM 19; hai package này là peer dependencies của UI. `@company/icons-react` là tùy chọn và cần cài riêng nếu dùng icon của bộ này.
+  ```ini
+  @vutrgsinh97:registry=https://npm.pkg.github.com
+  //npm.pkg.github.com/:_authToken=${GITHUB_PACKAGES_TOKEN}
+  ```
+
+  Sau đó chạy `pnpm add @vutrgsinh97/ui-react-web`. Không commit token; `.npmrc` chỉ chứa tên biến. Trong CI của consumer, đặt `GITHUB_PACKAGES_TOKEN` từ secret.
+
+Ứng dụng cần tự cài React và React DOM 19; hai package này là peer dependencies của UI. `@vutrgsinh97/icons-react` là tùy chọn và cần cài riêng nếu dùng icon của bộ này.
 
 ### 2. Nạp theme và import component
 
 Import theme **một lần** ở entry toàn ứng dụng, ví dụ `app/layout.tsx` của Next.js hoặc `src/main.tsx` của Vite:
 
 ```tsx
-import '@company/ui-react-web/theme.css'
+import '@vutrgsinh97/ui-react-web/theme.css'
 ```
 
 Sau đó import component theo nhu cầu:
 
 ```tsx
-import { Button } from '@company/ui-react-web/button'
-import { FormField } from '@company/ui-react-web/form-field'
-import { Input } from '@company/ui-react-web/input'
+import { Button } from '@vutrgsinh97/ui-react-web/button'
+import { FormField } from '@vutrgsinh97/ui-react-web/form-field'
+import { Input } from '@vutrgsinh97/ui-react-web/input'
 
 export function ProfileForm() {
   return (
@@ -87,9 +94,9 @@ export function ProfileForm() {
 }
 ```
 
-`@company/ui-react-web/desktop` cho phép import nhiều component qua một entry; `@company/ui-react-web/mobile` dùng các composite mobile web hiện có. Import trực tiếp `/button`, `/desktop/dialog`, `/desktop/tree`... giúp chỉ rõ phần ứng dụng dùng. Package xuất ESM và CSS theo component để bundler loại phần không sử dụng; hãy kiểm tra production bundle của consumer khi kích thước là yêu cầu quan trọng. Button-only fixture trong repository được kiểm tra để không kéo Dialog, Menu hoặc Tree.
+`@vutrgsinh97/ui-react-web/desktop` cho phép import nhiều component qua một entry; `@vutrgsinh97/ui-react-web/mobile` dùng các composite mobile web hiện có. Import trực tiếp `/button`, `/desktop/dialog`, `/desktop/tree`... giúp chỉ rõ phần ứng dụng dùng. Package xuất ESM và CSS theo component để bundler loại phần không sử dụng; hãy kiểm tra production bundle của consumer khi kích thước là yêu cầu quan trọng. Button-only fixture trong repository được kiểm tra để không kéo Dialog, Menu hoặc Tree.
 
-Với thông báo cần người dùng xác nhận, dùng `Modal` từ `@company/ui-react-web/modal`: truyền `title`, nội dung qua `children`, nút qua `footer`. Với thông báo nổi không chặn trang, dùng `ToastProvider`, `Toast`, `ToastViewport` từ `@company/ui-react-web/toast`; `status` nhận `info`, `success`, `warning`, `error` và `position` của viewport nhận sáu vị trí top/bottom × left/center/right. Xem ví dụ chạy được tại `/#modal-toast` và hướng dẫn trong [Consumer guide](CONSUMER-GUIDE.md).
+Với thông báo cần người dùng xác nhận, dùng `Modal` từ `@vutrgsinh97/ui-react-web/modal`: truyền `title`, nội dung qua `children`, nút qua `footer`. Với thông báo nổi không chặn trang, dùng `ToastProvider`, `Toast`, `ToastViewport` từ `@vutrgsinh97/ui-react-web/toast`; `status` nhận `info`, `success`, `warning`, `error` và `position` của viewport nhận sáu vị trí top/bottom × left/center/right. Xem ví dụ chạy được tại `/#modal-toast` và hướng dẫn trong [Consumer guide](CONSUMER-GUIDE.md).
 
 Màu lấy từ CSS tokens, có thể override trên container ứng dụng. Dùng `data-ds-theme="dark"` cho dark mode và `data-ds-platform="desktop" data-ds-density="compact"` khi muốn mật độ desktop gọn hơn. Mobile web dùng `data-ds-platform="mobile"`. Xem [Consumer guide](CONSUMER-GUIDE.md) để có ví dụ theme, import icon, controlled state, accessibility và cập nhật tarball.
 
@@ -106,7 +113,7 @@ Màu lấy từ CSS tokens, có thể override trên container ứng dụng. Dù
 | `apps/next-example/`, `apps/next-mobile-example/`, `apps/vite-example/` | Playground và app kiểm tra tích hợp |
 | `tests/` | Test hành vi của component |
 | `ai-handoffs/tasks/`, `ai-handoffs/reports/` | Brief và kết quả giao việc cho agent |
-| `release-candidates/` | Tarball cài thử local, không phải registry release |
+| `release-candidates/` | Tarball cài thử cũ (trước khi có registry); xoá sau lần publish đầu tiên |
 
 Chiều phụ thuộc chính là **composite theo view → composite dùng chung → primitive → tokens**. Component desktop và mobile không import implementation của nhau. Khác biệt nhỏ về style nằm trong CSS/tokens; khi layout hoặc hành vi khác rõ rệt mới tách composite theo view. Chi tiết cấu trúc nằm trong [AGENTS.md](AGENTS.md).
 
@@ -123,7 +130,15 @@ pnpm --filter next-mobile-example build
 pnpm --filter vite-example build
 ```
 
-`pnpm check` gồm build, typecheck, test và bundle isolation. Mobile build trong đợt desktop chỉ là kiểm tra tương thích; nó không có nghĩa mọi component desktop đã có bản mobile. Các bước review và release nằm trong [REVIEW.md](REVIEW.md). Chỉ publish sau khi đổi scope `@company`, cấu hình registry riêng và chuẩn bị CI credentials; hiện chưa có release lên registry.
+`pnpm check` gồm build, typecheck, test và bundle isolation. Mobile build trong đợt desktop chỉ là kiểm tra tương thích; nó không có nghĩa mọi component desktop đã có bản mobile. Các bước review và release nằm trong [REVIEW.md](REVIEW.md). Quy trình phát hành nằm ở mục [Phát hành](#phát-hành).
+
+## Phát hành
+
+1. Mỗi thay đổi ảnh hưởng consumer kèm một changeset: `pnpm changeset`.
+2. Khi merge vào `main`, workflow [release.yml](.github/workflows/release.yml) mở (hoặc cập nhật) PR **Version packages** để tăng version và ghi CHANGELOG.
+3. Merge PR đó thì workflow chạy `pnpm release` (`pnpm check` rồi `changeset publish`) và đẩy package lên GitHub Packages bằng `GITHUB_TOKEN`.
+
+Repository cần bật **Settings → Actions → General → Allow GitHub Actions to create and approve pull requests** để workflow mở được PR.
 
 ## Hướng phát triển tiếp
 

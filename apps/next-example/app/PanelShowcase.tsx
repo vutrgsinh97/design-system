@@ -12,7 +12,7 @@ import {
   PanelFooter,
   PanelHeader,
   PanelTitle
-} from '@company/ui-react-web/desktop'
+} from '@vutrgsinh97/ui-react-web/desktop'
 import styles from './panel-showcase.module.css'
 
 function ExampleContent() {

@@ -1,6 +1,14 @@
 {
-  "name": "@company/ui-react-web",
+  "name": "@vutrgsinh97/ui-react-web",
   "version": "0.1.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vutrgsinh97/design-system.git",
+    "directory": "packages/ui-react-web"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "description": "Internal React web UI components",
   "type": "module",
   "license": "UNLICENSED",

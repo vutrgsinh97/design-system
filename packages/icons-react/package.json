@@ -1,10 +1,20 @@
 {
-  "name": "@company/icons-react",
+  "name": "@vutrgsinh97/icons-react",
   "version": "0.1.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vutrgsinh97/design-system.git",
+    "directory": "packages/icons-react"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "description": "Internal React icons generated from shared SVG sources",
   "type": "module",
   "license": "UNLICENSED",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {

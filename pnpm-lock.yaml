@@ -50,7 +50,7 @@ importers:
 
   apps/next-example:
     dependencies:
-      '@company/ui-react-web':
+      '@vutrgsinh97/ui-react-web':
         specifier: workspace:*
         version: link:../../packages/ui-react-web
       next:
@@ -65,7 +65,7 @@ importers:
 
   apps/next-mobile-example:
     dependencies:
-      '@company/ui-react-web':
+      '@vutrgsinh97/ui-react-web':
         specifier: workspace:*
         version: link:../../packages/ui-react-web
       next:
@@ -80,7 +80,7 @@ importers:
 
   apps/vite-example:
     dependencies:
-      '@company/ui-react-web':
+      '@vutrgsinh97/ui-react-web':
         specifier: workspace:*
         version: link:../../packages/ui-react-web
       react:

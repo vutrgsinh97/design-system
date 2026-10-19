@@ -1,6 +1,6 @@
-# @company/icons-react
+# @vutrgsinh97/icons-react
 
-React icon components generated from the SVG files in `assets/svg`. This package is separate from `@company/ui-react-web`: apps that choose icons install it explicitly, while Button continues to accept any React element through `icon`, `startIcon`, or `endIcon`.
+React icon components generated from the SVG files in `assets/svg`. This package is separate from `@vutrgsinh97/ui-react-web`: apps that choose icons install it explicitly, while Button continues to accept any React element through `icon`, `startIcon`, or `endIcon`.
 
 The two `example-*` SVGs are temporary examples, not the product icon set. Remove them when the real Figma exports arrive.
 
@@ -9,15 +9,15 @@ To inspect the complete source set visually, run `pnpm dev:playground` from the 
 ## Add icons
 
 1. Export icons from Figma as individual SVG files and place them in `assets/svg`. Subfolders are allowed.
-2. Use descriptive filenames. The generator converts folders and filenames to kebab-case subpaths, so `navigation/arrow-left.svg` becomes `@company/icons-react/navigation-arrow-left` and `NavigationArrowLeftIcon`. Colliding normalized names stop the build.
+2. Use descriptive filenames. The generator converts folders and filenames to kebab-case subpaths, so `navigation/arrow-left.svg` becomes `@vutrgsinh97/icons-react/navigation-arrow-left` and `NavigationArrowLeftIcon`. Colliding normalized names stop the build.
 3. For a monochrome icon that should follow Button or theme colors, use `currentColor` for its relevant `fill` or `stroke` attributes. Preserve explicit colors for multicolor artwork. Keep `viewBox` in each SVG.
-4. From the repository root, run `pnpm --filter @company/icons-react build`. The build runs SVGR and SVGO, then emits ESM JavaScript and TypeScript declarations. Generated files under `src/icons` and `dist` are ignored by Git; commit the original SVGs.
+4. From the repository root, run `pnpm --filter @vutrgsinh97/icons-react build`. The build runs SVGR and SVGO, then emits ESM JavaScript and TypeScript declarations. Generated files under `src/icons` and `dist` are ignored by Git; commit the original SVGs.
 
 Example:
 
 ```tsx
-import { ExamplePlusIcon } from '@company/icons-react/example-plus'
-import { Button } from '@company/ui-react-web/button'
+import { ExamplePlusIcon } from '@vutrgsinh97/icons-react/example-plus'
+import { Button } from '@vutrgsinh97/ui-react-web/button'
 
 <Button startIcon={<ExamplePlusIcon />}>Add item</Button>
 ```
@@ -28,6 +28,6 @@ SVGs render at `1em` by default and receive `aria-hidden` and `focusable="false"
 
 ## Local development and release
 
-`pnpm dev:playground` starts the icon watcher alongside the UI package and app. Changes under `assets/svg` regenerate and rebuild the icon package. In another repository, link the local package with `pnpm add /absolute/path/to/design-system/packages/icons-react` and run `pnpm --filter @company/icons-react dev` here. Restore the registry dependency before committing that consumer.
+`pnpm dev:playground` starts the icon watcher alongside the UI package and app. Changes under `assets/svg` regenerate and rebuild the icon package. In another repository, link the local package with `pnpm add /absolute/path/to/design-system/packages/icons-react` and run `pnpm --filter @vutrgsinh97/icons-react dev` here. Restore the registry dependency before committing that consumer.
 
-Run `pnpm check` and `pnpm --filter @company/icons-react pack --pack-destination /private/tmp` before release. Replace the placeholder `@company` scope and configure a private registry before publishing. Future Vue or other framework wrappers should be generated from the same `assets/svg` source rather than duplicating the SVG library.
+Run `pnpm check` and `pnpm --filter @vutrgsinh97/icons-react pack --pack-destination /private/tmp` before release. Publishing to GitHub Packages runs from the root release workflow; see the root README. Future Vue or other framework wrappers should be generated from the same `assets/svg` source rather than duplicating the SVG library.
