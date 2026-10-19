@@ -1,0 +1,33 @@
+/* Edit these semantic Button colors to rebrand the package.
+   Values are CSS custom properties, so themes can also override them at runtime. */
+:root,
+[data-ds-theme='light'],
+[data-ds-theme='dark'],
+[data-ds-platform='mobile'] {
+  --ds-button-primary-bg: var(--ds-color-primary);
+  --ds-button-primary-text: var(--ds-color-on-primary);
+  --ds-button-primary-border: var(--ds-color-primary);
+  --ds-button-primary-hover-bg: var(--ds-color-primary-hover);
+
+  --ds-button-secondary-bg: color-mix(in srgb, var(--ds-color-primary) 11%, var(--ds-color-surface));
+  --ds-button-secondary-text: var(--ds-color-primary);
+  --ds-button-secondary-border: transparent;
+  --ds-button-secondary-hover-bg: color-mix(in srgb, var(--ds-color-primary) 18%, var(--ds-color-surface));
+
+  --ds-button-outline-bg: var(--ds-color-surface);
+  --ds-button-outline-text: var(--ds-color-text);
+  --ds-button-outline-border: var(--ds-color-border);
+  --ds-button-outline-hover-bg: color-mix(in srgb, var(--ds-color-primary) 6%, var(--ds-color-surface));
+
+  --ds-button-ghost-bg: transparent;
+  --ds-button-ghost-text: var(--ds-color-text);
+  --ds-button-ghost-border: transparent;
+  --ds-button-ghost-hover-bg: color-mix(in srgb, var(--ds-color-primary) 8%, var(--ds-color-surface));
+
+  --ds-button-danger-bg: var(--ds-color-danger);
+  --ds-button-danger-text: var(--ds-color-on-danger);
+  --ds-button-danger-border: var(--ds-color-danger);
+  --ds-button-danger-hover-bg: var(--ds-color-danger-hover);
+
+  --ds-button-focus-ring: var(--ds-color-focus);
+}

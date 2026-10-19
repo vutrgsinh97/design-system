@@ -1,0 +1,13 @@
+.scope {}
+:global(.ds-checkbox) { align-items: center; color: var(--ds-color-text); cursor: pointer; display: inline-flex; font: 400 0.875rem/1.4 var(--ds-font-family); gap: 0.5rem; }
+:global(.ds-checkbox__input) { accent-color: var(--ds-color-primary); height: 1rem; margin: 0; width: 1rem; }
+:global(.ds-checkbox__input):focus-visible { outline: 2px solid var(--ds-color-focus); outline-offset: 2px; }
+:global(.ds-checkbox):has(:disabled) { cursor: not-allowed; opacity: 0.56; }
+:global(.ds-checkbox__input:indeterminate) { accent-color: var(--ds-color-primary); }
+
+/* Small mobile adjustments; component logic and visual language stay shared. */
+:global([data-ds-platform='mobile'] .ds-checkbox) { min-height: 2.75rem; }
+:global([data-ds-platform='mobile'] .ds-checkbox__input) { height: 1.125rem; width: 1.125rem; }
+
+:global([data-ds-platform='desktop'][data-ds-density='compact'] .ds-checkbox) { min-height: var(--ds-control-height, 2rem); gap: var(--ds-space-2, 0.5rem); }
+:global([data-ds-platform='desktop'][data-ds-density='compact'] .ds-checkbox__input) { height: 0.875rem; width: 0.875rem; }

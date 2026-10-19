@@ -1,8 +1,0 @@
-.scope {}
-:global(.ds-text) { font-family: var(--ds-font-family); line-height: 1.5; margin: 0; }
-:global(.ds-text--sm) { font-size: 0.75rem; }
-:global(.ds-text--md) { font-size: 0.875rem; }
-:global(.ds-text--lg) { font-size: 1rem; }
-:global(.ds-text--default) { color: var(--ds-color-text); }
-:global(.ds-text--muted) { color: var(--ds-color-muted); }
-:global(.ds-text--danger) { color: var(--ds-color-danger); }

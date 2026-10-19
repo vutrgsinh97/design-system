@@ -1,7 +1,0 @@
-.scope {}
-:global(.ds-mobile-badge) { align-items: center; border: 1px solid currentColor; border-radius: 0.625rem; display: inline-flex; font: 700 0.6875rem/1 var(--ds-font-family); letter-spacing: 0.075em; min-height: 1.75rem; padding: 0.375rem 0.625rem; text-transform: uppercase; white-space: nowrap; }
-:global(.ds-mobile-badge--neutral) { background: var(--ds-mobile-field); border-color: var(--ds-mobile-border); color: var(--ds-mobile-text); }
-:global(.ds-mobile-badge--primary) { background: color-mix(in srgb, var(--ds-mobile-accent) 12%, var(--ds-mobile-surface)); color: var(--ds-mobile-accent); }
-:global(.ds-mobile-badge--success) { background: var(--ds-color-success-soft); color: var(--ds-color-success); }
-:global(.ds-mobile-badge--warning) { background: var(--ds-color-warning-soft); color: var(--ds-color-warning); }
-:global(.ds-mobile-badge--danger) { background: var(--ds-color-danger-soft); color: var(--ds-mobile-danger); }

@@ -1,0 +1,11 @@
+.scope {}
+:global(.ds-text) { font-family: var(--ds-font-family); font-size: var(--ds-font-size-content, 0.875rem); line-height: 1.5; margin: 0; overflow-wrap: anywhere; }
+:global(.ds-text--sm) { font-size: var(--ds-font-size-metadata, 0.75rem); }
+:global(.ds-text--md) { font-size: var(--ds-font-size-content, 0.875rem); }
+:global(.ds-text--lg) { font-size: 1rem; }
+:global(.ds-text--default) { color: var(--ds-color-text); }
+:global(.ds-text--muted) { color: var(--ds-color-muted); }
+:global(.ds-text--danger) { color: var(--ds-color-danger); }
+:global(.ds-text--success) { color: var(--ds-color-success); }
+:global(.ds-text--warning) { color: var(--ds-color-warning); }
+:global(.ds-text--pending) { color: var(--ds-color-pending); }

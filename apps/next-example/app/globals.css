@@ -1,8 +1,27 @@
 * { box-sizing: border-box; }
 body { background: var(--ds-color-background); color: var(--ds-color-text); font-family: var(--ds-font-family); margin: 0; }
+.site-header { background: var(--ds-color-surface); border-bottom: 1px solid var(--ds-color-border); }
+.site-header__inner { align-items: center; display: flex; gap: 2rem; justify-content: space-between; margin: 0 auto; max-width: 82rem; min-height: 4rem; padding: 0.5rem 1.5rem; }
+.site-header__brand { color: var(--ds-color-text); font-size: 0.9rem; font-weight: 800; letter-spacing: -0.02em; text-decoration: none; white-space: nowrap; }
+.site-header__nav { align-items: center; display: flex; gap: 0.25rem; }
+.site-header__nav a { border-radius: 0.55rem; color: var(--ds-color-muted); font-size: 0.83rem; font-weight: 650; padding: 0.55rem 0.75rem; text-decoration: none; }
+.site-header__nav a:hover { background: color-mix(in srgb, var(--ds-color-primary) 8%, var(--ds-color-surface)); color: var(--ds-color-primary); }
+.site-header__nav a:focus-visible, .site-header__brand:focus-visible { outline: 2px solid var(--ds-color-focus); outline-offset: 2px; }
+@media (max-width: 600px) { .site-header__inner { gap: 0.5rem; padding: 0.5rem 1rem; } .site-header__nav a { padding: 0.5rem; } }
 .demo { margin: 0 auto; max-width: 56rem; padding: 3rem 1.5rem; }
 .demo h1 { font-size: clamp(2rem, 4vw, 3rem); margin: 0.75rem 0 0.25rem; }
-.demo-card { display: grid; gap: 1.5rem; margin-top: 2rem; }
+.demo-card { margin-top: 2rem; }
 .demo-row { align-items: center; display: flex; flex-wrap: wrap; gap: 1rem; }
 .demo-fields { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); }
 .demo-fields label { display: grid; font-size: 0.875rem; font-weight: 600; gap: 0.4rem; }
+
+.button-showcase { background: var(--ds-color-surface); border: 1px solid var(--ds-color-border); border-radius: var(--ds-radius-lg); color: var(--ds-color-text); margin-top: 2rem; padding: 1.5rem; transition: background-color 150ms ease, color 150ms ease; }
+.button-showcase__header { align-items: flex-start; display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; }
+.button-showcase__header h2 { font-size: 1.5rem; margin: 0.125rem 0; }
+.button-showcase__eyebrow { color: var(--ds-color-primary); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em; margin: 0; text-transform: uppercase; }
+.button-showcase__description { color: var(--ds-color-muted); font-size: 0.875rem; margin: 0.25rem 0 0; }
+.button-showcase__section { border-top: 1px solid var(--ds-color-border); margin-top: 1.5rem; padding-top: 1.25rem; }
+.button-showcase__section h3 { font-size: 0.875rem; margin: 0 0 0.75rem; }
+.button-showcase__row { align-items: center; display: flex; flex-wrap: wrap; gap: 0.75rem; }
+.button-showcase__wide { width: 11rem; }
+@media (prefers-reduced-motion: reduce) { .button-showcase { transition: none; } }

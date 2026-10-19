@@ -19,7 +19,7 @@ export const DialogContent = forwardRef<ElementRef<typeof Primitive.Content>, Di
     return (
       <Primitive.Portal>
         <Primitive.Overlay className="ds-mobile-dialog__overlay" />
-        <Primitive.Content {...props} ref={ref} className={`${styles.scope} ds-mobile-dialog__content ${className}`.trim()}>
+        <Primitive.Content {...props} data-ds-platform="mobile" ref={ref} className={`${styles.scope} ds-mobile-dialog__content ${className}`.trim()}>
           {children}
         </Primitive.Content>
       </Primitive.Portal>

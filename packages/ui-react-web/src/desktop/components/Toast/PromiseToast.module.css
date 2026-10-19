@@ -1,0 +1,7 @@
+.content {
+  align-items: center;
+  display: flex;
+  gap: 0.625rem;
+  grid-column: 1;
+  min-width: 0;
+}

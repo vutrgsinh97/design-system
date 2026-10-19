@@ -1,0 +1,57 @@
+.scope {}
+:global(.ds-button) {
+  align-items: center;
+  background: var(--ds-button-bg);
+  border: 1px solid var(--ds-button-border);
+  border-radius: var(--ds-radius-md);
+  box-sizing: border-box;
+  color: var(--ds-button-text);
+  cursor: pointer;
+  display: inline-flex;
+  flex: none;
+  font: 600 var(--ds-font-size-content, 0.875rem)/1.25 var(--ds-font-family);
+  gap: var(--ds-space-2, 0.5rem);
+  justify-content: center;
+  line-height: 1.25;
+  text-decoration: none;
+  transition: background-color 140ms ease, border-color 140ms ease;
+  white-space: nowrap;
+}
+
+:global(.ds-button--sm) { min-height: 2rem; padding: 0.375rem 0.625rem; }
+:global(.ds-button--md) { min-height: 2.5rem; padding: 0.625rem 0.875rem; }
+:global(.ds-button--lg) { min-height: 3rem; padding: 0.75rem 1.125rem; font-size: 1rem; }
+
+:global(.ds-button--primary) { --ds-button-bg: var(--ds-button-primary-bg); --ds-button-text: var(--ds-button-primary-text); --ds-button-border: var(--ds-button-primary-border); --ds-button-hover-bg: var(--ds-button-primary-hover-bg); }
+:global(.ds-button--secondary) { --ds-button-bg: var(--ds-button-secondary-bg); --ds-button-text: var(--ds-button-secondary-text); --ds-button-border: var(--ds-button-secondary-border); --ds-button-hover-bg: var(--ds-button-secondary-hover-bg); }
+:global(.ds-button--outline) { --ds-button-bg: var(--ds-button-outline-bg); --ds-button-text: var(--ds-button-outline-text); --ds-button-border: var(--ds-button-outline-border); --ds-button-hover-bg: var(--ds-button-outline-hover-bg); }
+:global(.ds-button--ghost) { --ds-button-bg: var(--ds-button-ghost-bg); --ds-button-text: var(--ds-button-ghost-text); --ds-button-border: var(--ds-button-ghost-border); --ds-button-hover-bg: var(--ds-button-ghost-hover-bg); }
+:global(.ds-button--danger) { --ds-button-bg: var(--ds-button-danger-bg); --ds-button-text: var(--ds-button-danger-text); --ds-button-border: var(--ds-button-danger-border); --ds-button-hover-bg: var(--ds-button-danger-hover-bg); }
+
+:global(.ds-button):hover:not(:disabled) { background: var(--ds-button-hover-bg); }
+:global(.ds-button):focus-visible { outline: 2px solid var(--ds-button-focus-ring); outline-offset: 2px; }
+:global(.ds-button):disabled { cursor: not-allowed; opacity: 0.56; }
+:global(.ds-button--full-width) { width: 100%; }
+:global(.ds-button--icon-only) { aspect-ratio: 1; padding: 0; }
+:global(.ds-button--icon-only.ds-button--sm) { width: 2rem; }
+:global(.ds-button--icon-only.ds-button--md) { width: 2.5rem; }
+:global(.ds-button--icon-only.ds-button--lg) { width: 3rem; }
+:global(.ds-button__icon) { align-items: center; display: inline-flex; flex: none; justify-content: center; }
+:global(.ds-button__icon svg) { display: block; height: 1.125em; width: 1.125em; }
+:global(.ds-button__spinner) { border: 2px solid currentColor; border-right-color: transparent; border-radius: 50%; flex: none; height: 0.875rem; width: 0.875rem; animation: ds-button-spin 650ms linear infinite; }
+@keyframes ds-button-spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { :global(.ds-button) { transition: none; } :global(.ds-button__spinner) { animation: none; } }
+
+/* Compact is desktop-only and opt-in; the ordinary and mobile sizes stay as before. */
+:global([data-ds-platform='desktop'][data-ds-density='compact'] .ds-button--md) {
+  min-height: var(--ds-control-height, 2rem);
+  padding: var(--ds-space-1, 0.25rem) var(--ds-space-3, 0.75rem);
+}
+:global([data-ds-platform='desktop'][data-ds-density='compact'] .ds-button--icon-only.ds-button--md) {
+  width: var(--ds-control-height, 2rem);
+}
+
+/* Shared behavior and visual language; mobile only enlarges the tap target. */
+:global([data-ds-platform='mobile'] .ds-button) { min-height: 2.75rem; touch-action: manipulation; }
+:global([data-ds-platform='mobile'] .ds-button--icon-only) { min-width: 2.75rem; }
+:global([data-ds-platform='mobile'] .ds-button--lg) { min-height: 3rem; }

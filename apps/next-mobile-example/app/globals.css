@@ -5,7 +5,7 @@ body { background: var(--ds-mobile-page); color: var(--ds-mobile-text); font-fam
 .mobile-demo__label { color: var(--ds-mobile-accent); font-size: 0.875rem; font-weight: 700; }
 .mobile-demo__header h1 { font-size: 2rem; letter-spacing: -0.04em; line-height: 1.1; margin: 0; }
 .mobile-demo__eyebrow { align-items: center; display: flex; gap: 0.75rem; margin-top: 1rem; }
-.mobile-demo__stack, .mobile-demo__card, .mobile-demo__fields, .mobile-demo__actions { display: grid; gap: 1rem; }
+.mobile-demo__stack, .mobile-demo__fields, .mobile-demo__actions { display: grid; gap: 1rem; }
 .mobile-demo__card h2 { font-size: 1.125rem; letter-spacing: -0.02em; margin: 0; }
 .mobile-demo__section-title { align-items: center; display: flex; justify-content: space-between; }
 .mobile-demo__fields label { color: var(--ds-mobile-text); display: grid; font-size: 0.875rem; font-weight: 700; gap: 0.5rem; }

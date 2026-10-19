@@ -1,5 +1,21 @@
 .scope {}
-:global(.ds-dialog__overlay) { background: rgb(0 0 0 / 52%); inset: 0; position: fixed; z-index: 1000; }
-:global(.ds-dialog__content) { background: var(--ds-color-surface); border: 1px solid var(--ds-color-border); border-radius: var(--ds-radius-lg); box-shadow: var(--ds-shadow-popover); box-sizing: border-box; color: var(--ds-color-text); font-family: var(--ds-font-family); left: 50%; max-height: calc(100vh - 2rem); max-width: min(32rem, calc(100vw - 2rem)); overflow: auto; padding: 1.5rem; position: fixed; top: 50%; transform: translate(-50%, -50%); width: 100%; z-index: 1001; }
+:global(.ds-dialog__overlay) { background: var(--ds-color-overlay); inset: 0; position: fixed; z-index: 1000; }
+:global(.ds-dialog__content) { background: var(--ds-color-surface); border: 1px solid var(--ds-color-border); border-radius: var(--ds-radius-lg); box-shadow: var(--ds-shadow-popover); box-sizing: border-box; color: var(--ds-color-text); display: flex; flex-direction: column; font-family: var(--ds-font-family); left: 50%; max-height: calc(100vh - 2rem); max-width: min(32rem, calc(100vw - 2rem)); overflow: auto; padding: 1.5rem; position: fixed; top: 50%; transform: translate(-50%, -50%); width: 100%; z-index: 1001; }
+:global(.ds-dialog__content:has(.ds-dialog__body)) { overflow: hidden; }
+:global(.ds-dialog__header) { flex: 0 0 auto; }
+:global(.ds-dialog__body) { flex: 1 1 auto; min-height: 0; overflow: auto; overscroll-behavior: contain; }
+:global(.ds-dialog__footer) { flex: 0 0 auto; }
 :global(.ds-dialog__content):focus { outline: none; }
 :global(.ds-dialog__content):focus-visible { outline: 2px solid var(--ds-color-focus); outline-offset: 2px; }
+
+@media (prefers-reduced-motion: no-preference) {
+  :global(.ds-dialog__overlay[data-state='open']) { animation: ds-dialog-overlay-in var(--ds-motion-duration-modal) var(--ds-motion-ease-out); }
+  :global(.ds-dialog__overlay[data-state='closed']) { animation: ds-dialog-overlay-out var(--ds-motion-duration-modal-exit) ease-in; }
+  :global(.ds-dialog__content[data-state='open']) { animation: ds-dialog-content-in var(--ds-motion-duration-modal) var(--ds-motion-ease-out); }
+  :global(.ds-dialog__content[data-state='closed']) { animation: ds-dialog-content-out var(--ds-motion-duration-modal-exit) ease-in; }
+}
+
+@keyframes ds-dialog-overlay-in { from { opacity: 0; } to { opacity: 1; } }
+@keyframes ds-dialog-overlay-out { from { opacity: 1; } to { opacity: 0; } }
+@keyframes ds-dialog-content-in { from { opacity: 0; transform: translate(-50%, calc(-50% + 0.5rem)); } to { opacity: 1; transform: translate(-50%, -50%); } }
+@keyframes ds-dialog-content-out { from { opacity: 1; transform: translate(-50%, -50%); } to { opacity: 0; transform: translate(-50%, calc(-50% + 0.5rem)); } }

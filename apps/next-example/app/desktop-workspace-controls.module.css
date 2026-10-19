@@ -1,0 +1,15 @@
+.controls { align-items: center; display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-bottom: 1rem; }
+.controls :global(.ds-text) { flex: 1 1 18rem; margin: 0; }
+.catalog { display: grid; gap: 1.5rem; grid-template-columns: minmax(14rem, 20rem) minmax(0, 1fr); }
+.search { display: grid; align-content: start; gap: .65rem; min-width: 0; }
+.search label { font-size: .875rem; font-weight: 650; }
+.search :global(.ds-combobox) { width: 100%; }
+.search :global(.ds-text) { margin: 0; }
+.modes { display: flex; flex-wrap: wrap; gap: .25rem; }
+.resizers { display: grid; gap: 1rem; min-width: 0; }
+.resizers h3 { font-size: .875rem; margin: 0 0 .4rem; }
+.split { border: 1px solid var(--ds-color-border); border-radius: var(--ds-radius-md); height: 11rem; min-width: 0; overflow: hidden; width: 100%; }
+.pane { box-sizing: border-box; display: flex; flex-direction: column; gap: .4rem; height: 100%; min-width: 0; overflow: auto; padding: .75rem; }
+.pane strong { font-size: .875rem; }
+.pane span, .pane p { color: var(--ds-color-muted); font-size: .8rem; line-height: 1.4; margin: 0; overflow-wrap: anywhere; }
+@media (max-width: 760px) { .catalog { grid-template-columns: 1fr; } }

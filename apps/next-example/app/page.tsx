@@ -1,8 +1,17 @@
+import { DesktopWorkspaceControlsShowcase } from './DesktopWorkspaceControlsShowcase'
+import { DesktopCollectionsShowcase } from './DesktopCollectionsShowcase'
+import { ButtonShowcase } from './ButtonShowcase'
+import { PanelShowcase } from './PanelShowcase'
+import { ModalToastShowcase } from './ModalToastShowcase'
 import {
   Alert,
   Badge,
   Button,
   Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+  FormField,
   Checkbox,
   Dialog,
   DialogClose,
@@ -26,7 +35,12 @@ export default function Home() {
         <h1>Desktop components</h1>
         <Text tone="muted">Next.js integration example</Text>
       </header>
+      <ButtonShowcase />
+      <PanelShowcase />
+      <ModalToastShowcase />
       <Card className="demo-card">
+        <CardHeader><CardTitle>Build with shared controls</CardTitle></CardHeader>
+        <CardContent>
         <div className="demo-row">
           <Button>Primary button</Button>
           <Button variant="secondary">Secondary</Button>
@@ -34,7 +48,7 @@ export default function Home() {
           <Spinner label="Loading example" />
         </div>
         <div className="demo-fields">
-          <label>Input<Input placeholder="Your name" /></label>
+          <FormField label="Name" hint="This field connects its label and hint automatically."><Input placeholder="Your name" /></FormField>
           <label>Select<Select defaultValue="one"><option value="one">One</option><option value="two">Two</option></Select></label>
           <label>Message<Textarea placeholder="Write a message" /></label>
         </div>
@@ -48,7 +62,10 @@ export default function Home() {
             <DialogClose asChild><Button>Close</Button></DialogClose>
           </DialogContent>
         </Dialog>
+        </CardContent>
       </Card>
+      <DesktopCollectionsShowcase />
+      <DesktopWorkspaceControlsShowcase />
     </main>
   )
 }

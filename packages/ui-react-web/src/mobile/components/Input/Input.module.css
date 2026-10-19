@@ -1,6 +1,0 @@
-.scope {}
-:global(.ds-mobile-input) { background: var(--ds-mobile-field); border: 2px solid transparent; border-radius: var(--ds-mobile-radius); box-sizing: border-box; color: var(--ds-mobile-text); font: 500 1rem/1.3 var(--ds-font-family); min-height: 3.25rem; padding: 0.875rem 1rem; width: 100%; }
-:global(.ds-mobile-input)::placeholder { color: var(--ds-mobile-muted); }
-:global(.ds-mobile-input):focus-visible { border-color: var(--ds-mobile-focus); outline: none; }
-:global(.ds-mobile-input)[aria-invalid='true'] { border-color: var(--ds-mobile-danger); }
-:global(.ds-mobile-input):disabled { cursor: not-allowed; opacity: 0.55; }

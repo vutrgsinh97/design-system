@@ -1,0 +1,65 @@
+.showcase {
+  margin-top: 2.5rem;
+}
+
+.intro h2 {
+  font-size: 1.5rem;
+  margin: 0.25rem 0;
+}
+
+.intro p {
+  color: var(--ds-color-muted);
+  font-size: 0.875rem;
+  margin: 0.25rem 0 1.5rem;
+}
+
+.eyebrow {
+  color: var(--ds-color-primary);
+  font-size: 0.72rem;
+  font-weight: 750;
+  letter-spacing: 0.1em;
+}
+
+.variants {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.variantLabel {
+  color: var(--ds-color-muted);
+  font-size: 0.8rem;
+  font-weight: 700;
+  margin: 0 0 0.6rem;
+}
+
+.contentTitle {
+  font-size: 1rem;
+  margin: 0;
+}
+
+.description {
+  color: var(--ds-color-muted);
+  font-size: 0.875rem;
+  margin: 0.35rem 0 1.25rem;
+}
+
+.field {
+  max-width: 26rem;
+}
+
+.note {
+  background: var(--ds-color-hover);
+  border: 1px solid var(--ds-color-border);
+  border-radius: var(--ds-radius-md);
+  color: var(--ds-color-muted);
+  font-size: 0.875rem;
+  margin-top: 1.25rem;
+  padding: 0.85rem 1rem;
+}
+
+.status {
+  color: var(--ds-color-muted);
+  font-size: 0.8rem;
+  min-height: 1.25rem;
+  margin: 0.75rem 0 0;
+}

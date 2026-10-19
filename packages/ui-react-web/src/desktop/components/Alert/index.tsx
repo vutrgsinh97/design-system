@@ -7,8 +7,14 @@ export type AlertProps = HTMLAttributes<HTMLDivElement> & {
 }
 
 export const Alert = forwardRef<HTMLDivElement, AlertProps>(function Alert(
-  { variant = 'info', className = '', ...props },
+  { variant = 'info', className = '', role, children, ...props },
   ref
 ) {
-  return <div {...props} ref={ref} className={`${styles.scope} ds-alert ds-alert--${variant} ${className}`.trim()} />
+  const status = variant === 'danger' || variant === 'warning' ? 'alert' : 'status'
+  const statusLabel = variant === 'danger' ? 'Error' : variant === 'info' ? 'Information' : variant[0].toUpperCase() + variant.slice(1)
+  return (
+    <div {...props} ref={ref} role={role ?? status} className={`${styles.scope} ds-alert ds-alert--${variant} ${className}`.trim()}>
+      <span className="ds-alert__status">{statusLabel}: </span>{children}
+    </div>
+  )
 })

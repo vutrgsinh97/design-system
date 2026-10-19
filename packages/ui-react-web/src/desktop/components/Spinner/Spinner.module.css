@@ -1,7 +1,0 @@
-.scope {}
-:global(.ds-spinner) { border: 2px solid color-mix(in srgb, var(--ds-color-primary) 24%, transparent); border-right-color: var(--ds-color-primary); border-radius: 50%; display: inline-block; flex: none; animation: ds-spinner-spin 650ms linear infinite; }
-:global(.ds-spinner--sm) { height: 0.875rem; width: 0.875rem; }
-:global(.ds-spinner--md) { height: 1.25rem; width: 1.25rem; }
-:global(.ds-spinner--lg) { height: 1.75rem; width: 1.75rem; }
-@keyframes ds-spinner-spin { to { transform: rotate(360deg); } }
-@media (prefers-reduced-motion: reduce) { :global(.ds-spinner) { animation-duration: 1.5s; } }

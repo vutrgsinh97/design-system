@@ -4,25 +4,32 @@
   "version": "0.1.0",
   "packageManager": "pnpm@11.15.1",
   "scripts": {
-    "build": "pnpm --filter @company/ui-react-web build",
-    "typecheck": "pnpm --filter @company/ui-react-web typecheck && pnpm --filter next-example typecheck && pnpm --filter next-mobile-example typecheck && pnpm --filter vite-example typecheck",
-    "check:bundle": "node apps/vite-example/scripts/check-bundle.mjs",
-    "check": "pnpm build && pnpm typecheck && pnpm check:bundle",
+    "build": "pnpm --filter @company/icons-react build && pnpm --filter @company/ui-react-web build",
+    "typecheck": "pnpm --filter @company/icons-react typecheck && pnpm --filter @company/ui-react-web typecheck && pnpm --filter next-example typecheck && pnpm --filter next-mobile-example typecheck && pnpm --filter vite-example typecheck",
+    "check:bundle": "pnpm --filter @company/icons-react check:bundle && node apps/vite-example/scripts/check-bundle.mjs",
+    "check": "pnpm build && pnpm typecheck && pnpm test && pnpm check:bundle",
     "dev:playground": "pnpm dev:next",
-    "dev:next": "pnpm build && pnpm --parallel --filter @company/ui-react-web --filter next-example dev",
-    "dev:mobile": "pnpm build && pnpm --parallel --filter @company/ui-react-web --filter next-mobile-example dev",
-    "dev:vite": "pnpm build && pnpm --parallel --filter @company/ui-react-web --filter vite-example dev",
+    "dev:next": "pnpm build && pnpm --parallel --filter @company/icons-react --filter @company/ui-react-web --filter next-example dev",
+    "dev:mobile": "pnpm build && pnpm --parallel --filter @company/icons-react --filter @company/ui-react-web --filter next-mobile-example dev",
+    "dev:vite": "pnpm build && pnpm --parallel --filter @company/icons-react --filter @company/ui-react-web --filter vite-example dev",
     "changeset": "changeset",
     "version-packages": "changeset version",
-    "release": "pnpm check && changeset publish"
+    "release": "pnpm check && changeset publish",
+    "test": "vitest run"
   },
   "devDependencies": {
-    "@changesets/cli": "^2.29.0",
     "@changesets/changelog-git": "^0.2.0",
+    "@changesets/cli": "^2.29.0",
+    "@testing-library/react": "^16.3.3",
+    "@testing-library/user-event": "^14.6.7",
     "@types/node": "^22.0.0",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
     "esbuild": "^0.25.0",
-    "typescript": "^5.9.0"
+    "jsdom": "^30.1.2",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "typescript": "^5.9.0",
+    "vitest": "^5.0.3"
   }
 }

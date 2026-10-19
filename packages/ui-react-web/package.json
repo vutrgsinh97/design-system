@@ -22,174 +22,303 @@
       "import": "./dist/mobile/index.js"
     },
     "./button": {
-      "types": "./dist/desktop/components/Button/index.d.ts",
-      "import": "./dist/desktop/components/Button/index.js"
+      "types": "./dist/primitives/Button/index.d.ts",
+      "import": "./dist/primitives/Button/index.js"
     },
     "./input": {
-      "types": "./dist/desktop/components/Input/index.d.ts",
-      "import": "./dist/desktop/components/Input/index.js"
+      "types": "./dist/primitives/Input/index.d.ts",
+      "import": "./dist/primitives/Input/index.js"
     },
     "./textarea": {
-      "types": "./dist/desktop/components/Textarea/index.d.ts",
-      "import": "./dist/desktop/components/Textarea/index.js"
+      "types": "./dist/primitives/Textarea/index.d.ts",
+      "import": "./dist/primitives/Textarea/index.js"
     },
     "./checkbox": {
-      "types": "./dist/desktop/components/Checkbox/index.d.ts",
-      "import": "./dist/desktop/components/Checkbox/index.js"
+      "types": "./dist/primitives/Checkbox/index.d.ts",
+      "import": "./dist/primitives/Checkbox/index.js"
     },
     "./radio": {
-      "types": "./dist/desktop/components/Radio/index.d.ts",
-      "import": "./dist/desktop/components/Radio/index.js"
+      "types": "./dist/primitives/Radio/index.d.ts",
+      "import": "./dist/primitives/Radio/index.js"
     },
     "./switch": {
-      "types": "./dist/desktop/components/Switch/index.d.ts",
-      "import": "./dist/desktop/components/Switch/index.js"
+      "types": "./dist/primitives/Switch/index.d.ts",
+      "import": "./dist/primitives/Switch/index.js"
     },
     "./select": {
-      "types": "./dist/desktop/components/Select/index.d.ts",
-      "import": "./dist/desktop/components/Select/index.js"
+      "types": "./dist/primitives/Select/index.d.ts",
+      "import": "./dist/primitives/Select/index.js"
     },
     "./card": {
       "types": "./dist/desktop/components/Card/index.d.ts",
       "import": "./dist/desktop/components/Card/index.js"
     },
+    "./panel": {
+      "types": "./dist/desktop/components/Panel/index.d.ts",
+      "import": "./dist/desktop/components/Panel/index.js"
+    },
     "./badge": {
-      "types": "./dist/desktop/components/Badge/index.d.ts",
-      "import": "./dist/desktop/components/Badge/index.js"
+      "types": "./dist/primitives/Badge/index.d.ts",
+      "import": "./dist/primitives/Badge/index.js"
     },
     "./alert": {
       "types": "./dist/desktop/components/Alert/index.d.ts",
       "import": "./dist/desktop/components/Alert/index.js"
     },
     "./spinner": {
-      "types": "./dist/desktop/components/Spinner/index.d.ts",
-      "import": "./dist/desktop/components/Spinner/index.js"
+      "types": "./dist/primitives/Spinner/index.d.ts",
+      "import": "./dist/primitives/Spinner/index.js"
     },
     "./divider": {
-      "types": "./dist/desktop/components/Divider/index.d.ts",
-      "import": "./dist/desktop/components/Divider/index.js"
+      "types": "./dist/primitives/Divider/index.d.ts",
+      "import": "./dist/primitives/Divider/index.js"
     },
     "./text": {
-      "types": "./dist/desktop/components/Text/index.d.ts",
-      "import": "./dist/desktop/components/Text/index.js"
+      "types": "./dist/primitives/Text/index.d.ts",
+      "import": "./dist/primitives/Text/index.js"
     },
     "./dialog": {
       "types": "./dist/desktop/components/Dialog/index.d.ts",
       "import": "./dist/desktop/components/Dialog/index.js"
+    },
+    "./modal": {
+      "types": "./dist/desktop/components/Modal/index.d.ts",
+      "import": "./dist/desktop/components/Modal/index.js"
+    },
+    "./desktop/modal": {
+      "types": "./dist/desktop/components/Modal/index.d.ts",
+      "import": "./dist/desktop/components/Modal/index.js"
     },
     "./desktop/alert": {
       "types": "./dist/desktop/components/Alert/index.d.ts",
       "import": "./dist/desktop/components/Alert/index.js"
     },
     "./desktop/badge": {
-      "types": "./dist/desktop/components/Badge/index.d.ts",
-      "import": "./dist/desktop/components/Badge/index.js"
+      "types": "./dist/primitives/Badge/index.d.ts",
+      "import": "./dist/primitives/Badge/index.js"
     },
     "./desktop/button": {
-      "types": "./dist/desktop/components/Button/index.d.ts",
-      "import": "./dist/desktop/components/Button/index.js"
+      "types": "./dist/primitives/Button/index.d.ts",
+      "import": "./dist/primitives/Button/index.js"
     },
     "./desktop/card": {
       "types": "./dist/desktop/components/Card/index.d.ts",
       "import": "./dist/desktop/components/Card/index.js"
     },
+    "./desktop/panel": {
+      "types": "./dist/desktop/components/Panel/index.d.ts",
+      "import": "./dist/desktop/components/Panel/index.js"
+    },
     "./desktop/checkbox": {
-      "types": "./dist/desktop/components/Checkbox/index.d.ts",
-      "import": "./dist/desktop/components/Checkbox/index.js"
+      "types": "./dist/primitives/Checkbox/index.d.ts",
+      "import": "./dist/primitives/Checkbox/index.js"
     },
     "./desktop/dialog": {
       "types": "./dist/desktop/components/Dialog/index.d.ts",
       "import": "./dist/desktop/components/Dialog/index.js"
     },
     "./desktop/divider": {
-      "types": "./dist/desktop/components/Divider/index.d.ts",
-      "import": "./dist/desktop/components/Divider/index.js"
+      "types": "./dist/primitives/Divider/index.d.ts",
+      "import": "./dist/primitives/Divider/index.js"
     },
     "./desktop/input": {
-      "types": "./dist/desktop/components/Input/index.d.ts",
-      "import": "./dist/desktop/components/Input/index.js"
+      "types": "./dist/primitives/Input/index.d.ts",
+      "import": "./dist/primitives/Input/index.js"
     },
     "./desktop/radio": {
-      "types": "./dist/desktop/components/Radio/index.d.ts",
-      "import": "./dist/desktop/components/Radio/index.js"
+      "types": "./dist/primitives/Radio/index.d.ts",
+      "import": "./dist/primitives/Radio/index.js"
     },
     "./desktop/select": {
-      "types": "./dist/desktop/components/Select/index.d.ts",
-      "import": "./dist/desktop/components/Select/index.js"
+      "types": "./dist/primitives/Select/index.d.ts",
+      "import": "./dist/primitives/Select/index.js"
     },
     "./desktop/spinner": {
-      "types": "./dist/desktop/components/Spinner/index.d.ts",
-      "import": "./dist/desktop/components/Spinner/index.js"
+      "types": "./dist/primitives/Spinner/index.d.ts",
+      "import": "./dist/primitives/Spinner/index.js"
     },
     "./desktop/switch": {
-      "types": "./dist/desktop/components/Switch/index.d.ts",
-      "import": "./dist/desktop/components/Switch/index.js"
+      "types": "./dist/primitives/Switch/index.d.ts",
+      "import": "./dist/primitives/Switch/index.js"
     },
     "./desktop/text": {
-      "types": "./dist/desktop/components/Text/index.d.ts",
-      "import": "./dist/desktop/components/Text/index.js"
+      "types": "./dist/primitives/Text/index.d.ts",
+      "import": "./dist/primitives/Text/index.js"
     },
     "./desktop/textarea": {
-      "types": "./dist/desktop/components/Textarea/index.d.ts",
-      "import": "./dist/desktop/components/Textarea/index.js"
+      "types": "./dist/primitives/Textarea/index.d.ts",
+      "import": "./dist/primitives/Textarea/index.js"
     },
     "./mobile/alert": {
       "types": "./dist/mobile/components/Alert/index.d.ts",
       "import": "./dist/mobile/components/Alert/index.js"
     },
     "./mobile/badge": {
-      "types": "./dist/mobile/components/Badge/index.d.ts",
-      "import": "./dist/mobile/components/Badge/index.js"
+      "types": "./dist/primitives/Badge/index.d.ts",
+      "import": "./dist/primitives/Badge/index.js"
     },
     "./mobile/button": {
-      "types": "./dist/mobile/components/Button/index.d.ts",
-      "import": "./dist/mobile/components/Button/index.js"
+      "types": "./dist/primitives/Button/index.d.ts",
+      "import": "./dist/primitives/Button/index.js"
     },
     "./mobile/card": {
       "types": "./dist/mobile/components/Card/index.d.ts",
       "import": "./dist/mobile/components/Card/index.js"
     },
     "./mobile/checkbox": {
-      "types": "./dist/mobile/components/Checkbox/index.d.ts",
-      "import": "./dist/mobile/components/Checkbox/index.js"
+      "types": "./dist/primitives/Checkbox/index.d.ts",
+      "import": "./dist/primitives/Checkbox/index.js"
     },
     "./mobile/dialog": {
       "types": "./dist/mobile/components/Dialog/index.d.ts",
       "import": "./dist/mobile/components/Dialog/index.js"
     },
     "./mobile/divider": {
-      "types": "./dist/mobile/components/Divider/index.d.ts",
-      "import": "./dist/mobile/components/Divider/index.js"
+      "types": "./dist/primitives/Divider/index.d.ts",
+      "import": "./dist/primitives/Divider/index.js"
     },
     "./mobile/input": {
-      "types": "./dist/mobile/components/Input/index.d.ts",
-      "import": "./dist/mobile/components/Input/index.js"
+      "types": "./dist/primitives/Input/index.d.ts",
+      "import": "./dist/primitives/Input/index.js"
     },
     "./mobile/radio": {
-      "types": "./dist/mobile/components/Radio/index.d.ts",
-      "import": "./dist/mobile/components/Radio/index.js"
+      "types": "./dist/primitives/Radio/index.d.ts",
+      "import": "./dist/primitives/Radio/index.js"
     },
     "./mobile/select": {
-      "types": "./dist/mobile/components/Select/index.d.ts",
-      "import": "./dist/mobile/components/Select/index.js"
+      "types": "./dist/primitives/Select/index.d.ts",
+      "import": "./dist/primitives/Select/index.js"
     },
     "./mobile/spinner": {
-      "types": "./dist/mobile/components/Spinner/index.d.ts",
-      "import": "./dist/mobile/components/Spinner/index.js"
+      "types": "./dist/primitives/Spinner/index.d.ts",
+      "import": "./dist/primitives/Spinner/index.js"
     },
     "./mobile/switch": {
-      "types": "./dist/mobile/components/Switch/index.d.ts",
-      "import": "./dist/mobile/components/Switch/index.js"
+      "types": "./dist/primitives/Switch/index.d.ts",
+      "import": "./dist/primitives/Switch/index.js"
     },
     "./mobile/text": {
-      "types": "./dist/mobile/components/Text/index.d.ts",
-      "import": "./dist/mobile/components/Text/index.js"
+      "types": "./dist/primitives/Text/index.d.ts",
+      "import": "./dist/primitives/Text/index.js"
     },
     "./mobile/textarea": {
-      "types": "./dist/mobile/components/Textarea/index.d.ts",
-      "import": "./dist/mobile/components/Textarea/index.js"
+      "types": "./dist/primitives/Textarea/index.d.ts",
+      "import": "./dist/primitives/Textarea/index.js"
     },
-    "./theme.css": "./dist/styles/theme.css"
+    "./tabs": {
+      "types": "./dist/desktop/components/Tabs/index.d.ts",
+      "import": "./dist/desktop/components/Tabs/index.js"
+    },
+    "./tooltip": {
+      "types": "./dist/desktop/components/Tooltip/index.d.ts",
+      "import": "./dist/desktop/components/Tooltip/index.js"
+    },
+    "./desktop/tabs": {
+      "types": "./dist/desktop/components/Tabs/index.d.ts",
+      "import": "./dist/desktop/components/Tabs/index.js"
+    },
+    "./desktop/tooltip": {
+      "types": "./dist/desktop/components/Tooltip/index.d.ts",
+      "import": "./dist/desktop/components/Tooltip/index.js"
+    },
+    "./menu": {
+      "types": "./dist/desktop/components/Menu/index.d.ts",
+      "import": "./dist/desktop/components/Menu/index.js"
+    },
+    "./desktop/menu": {
+      "types": "./dist/desktop/components/Menu/index.d.ts",
+      "import": "./dist/desktop/components/Menu/index.js"
+    },
+    "./table": {
+      "types": "./dist/desktop/components/Table/index.d.ts",
+      "import": "./dist/desktop/components/Table/index.js"
+    },
+    "./desktop/table": {
+      "types": "./dist/desktop/components/Table/index.d.ts",
+      "import": "./dist/desktop/components/Table/index.js"
+    },
+    "./list": {
+      "types": "./dist/desktop/components/List/index.d.ts",
+      "import": "./dist/desktop/components/List/index.js"
+    },
+    "./desktop/list": {
+      "types": "./dist/desktop/components/List/index.d.ts",
+      "import": "./dist/desktop/components/List/index.js"
+    },
+    "./tree": {
+      "types": "./dist/desktop/components/Tree/index.d.ts",
+      "import": "./dist/desktop/components/Tree/index.js"
+    },
+    "./desktop/tree": {
+      "types": "./dist/desktop/components/Tree/index.d.ts",
+      "import": "./dist/desktop/components/Tree/index.js"
+    },
+    "./combobox": {
+      "types": "./dist/desktop/components/Combobox/index.d.ts",
+      "import": "./dist/desktop/components/Combobox/index.js"
+    },
+    "./desktop/combobox": {
+      "types": "./dist/desktop/components/Combobox/index.d.ts",
+      "import": "./dist/desktop/components/Combobox/index.js"
+    },
+    "./split-pane": {
+      "types": "./dist/desktop/components/SplitPane/index.d.ts",
+      "import": "./dist/desktop/components/SplitPane/index.js"
+    },
+    "./desktop/split-pane": {
+      "types": "./dist/desktop/components/SplitPane/index.d.ts",
+      "import": "./dist/desktop/components/SplitPane/index.js"
+    },
+    "./toast": {
+      "types": "./dist/desktop/components/Toast/index.d.ts",
+      "import": "./dist/desktop/components/Toast/index.js"
+    },
+    "./desktop/toast": {
+      "types": "./dist/desktop/components/Toast/index.d.ts",
+      "import": "./dist/desktop/components/Toast/index.js"
+    },
+    "./progress": {
+      "types": "./dist/desktop/components/Progress/index.d.ts",
+      "import": "./dist/desktop/components/Progress/index.js"
+    },
+    "./desktop/progress": {
+      "types": "./dist/desktop/components/Progress/index.d.ts",
+      "import": "./dist/desktop/components/Progress/index.js"
+    },
+    "./empty-state": {
+      "types": "./dist/desktop/components/EmptyState/index.d.ts",
+      "import": "./dist/desktop/components/EmptyState/index.js"
+    },
+    "./desktop/empty-state": {
+      "types": "./dist/desktop/components/EmptyState/index.d.ts",
+      "import": "./dist/desktop/components/EmptyState/index.js"
+    },
+    "./theme.css": "./dist/styles/theme.css",
+    "./label": {
+      "types": "./dist/primitives/Label/index.d.ts",
+      "import": "./dist/primitives/Label/index.js"
+    },
+    "./desktop/label": {
+      "types": "./dist/primitives/Label/index.d.ts",
+      "import": "./dist/primitives/Label/index.js"
+    },
+    "./mobile/label": {
+      "types": "./dist/primitives/Label/index.d.ts",
+      "import": "./dist/primitives/Label/index.js"
+    },
+    "./form-field": {
+      "types": "./dist/composites/FormField/index.d.ts",
+      "import": "./dist/composites/FormField/index.js"
+    },
+    "./desktop/form-field": {
+      "types": "./dist/composites/FormField/index.d.ts",
+      "import": "./dist/composites/FormField/index.js"
+    },
+    "./mobile/form-field": {
+      "types": "./dist/composites/FormField/index.d.ts",
+      "import": "./dist/composites/FormField/index.js"
+    },
+    "./button-colors.css": "./dist/config/button-colors.css"
   },
   "sideEffects": [
     "**/*.css"
@@ -206,6 +335,10 @@
     "react-dom": "^19.0.0"
   },
   "dependencies": {
-    "@radix-ui/react-dialog": "^1.1.0"
+    "@radix-ui/react-dialog": "^1.1.0",
+    "@radix-ui/react-dropdown-menu": "^2.1.25",
+    "@radix-ui/react-tabs": "^1.1.22",
+    "@radix-ui/react-toast": "^1.2.24",
+    "@radix-ui/react-tooltip": "^1.3.0"
   }
 }

@@ -20,16 +20,25 @@ async function snapshot(dir = source) {
   return files.sort().join('\n')
 }
 
-async function build() {
+async function run(command, args) {
+  const child = spawn(command, args, { cwd: root, stdio: 'inherit' })
+  const code = await new Promise((resolve) => child.once('exit', resolve))
+  return code === 0
+}
+
+async function build(initial = false) {
   console.log('Source changed; rebuilding UI package')
-  const child = spawn('pnpm', ['build'], { cwd: root, stdio: 'inherit' })
-  await new Promise((resolve) => child.once('exit', resolve))
+  // The initial build may clean dist before the app starts. Rebuilds leave existing
+  // output in place so Next.js never resolves imports while dist is missing.
+  if (initial) return run('pnpm', ['build'])
+  if (!await run('pnpm', ['exec', 'tsc', '-p', 'tsconfig.build.json'])) return false
+  return run('node', ['scripts/copy-css.mjs'])
 }
 
 try {
   await access(output)
 } catch {
-  await build()
+  await build(true)
 }
 
 let previous = await snapshot()
@@ -42,9 +51,8 @@ const timer = setInterval(async () => {
   try {
     const current = await snapshot()
     if (current !== previous) {
-      previous = current
       building = true
-      await build()
+      if (await build()) previous = current
       building = false
     }
   } catch (error) {

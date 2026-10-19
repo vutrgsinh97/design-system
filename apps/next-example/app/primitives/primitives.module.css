@@ -1,0 +1,20 @@
+.page { margin: 0 auto; max-width: 72rem; padding: 3rem 1.5rem 5rem; }
+.intro { align-items: flex-start; display: flex; flex-wrap: wrap; gap: 1.5rem; justify-content: space-between; margin-bottom: 2rem; }
+.intro h1 { font-size: clamp(2rem, 4vw, 3rem); letter-spacing: -0.04em; margin: 0.2rem 0 0.5rem; }
+.intro p:not(.eyebrow) { color: var(--ds-color-muted); line-height: 1.6; margin: 0; max-width: 42rem; }
+.controls { align-items: center; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.eyebrow, .kicker { color: var(--ds-color-primary); font-size: 0.75rem; font-weight: 750; letter-spacing: 0.08em; text-transform: uppercase; }
+.eyebrow { margin: 0; }
+.catalog { background: var(--ds-color-background); border: 1px solid var(--ds-color-border); border-radius: var(--ds-radius-lg); color: var(--ds-color-text); padding: 0 1.75rem 1.75rem; }
+.group { padding-top: 1.75rem; }
+.group + .group { border-top: 1px solid var(--ds-color-border); margin-top: 2rem; }
+.group header { margin-bottom: 1.25rem; }
+.group h2 { font-size: 1.4rem; letter-spacing: -0.025em; margin: 0.35rem 0; }
+.group header p { color: var(--ds-color-muted); font-size: 0.9rem; line-height: 1.5; margin: 0; }
+.grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr)); }
+.demo { background: var(--ds-color-surface); border: 1px solid var(--ds-color-border); border-radius: var(--ds-radius-md); display: flex; flex-direction: column; gap: 0.8rem; min-width: 0; padding: 1.25rem; }
+.demo h3 { font-size: 0.9rem; margin: 0; }
+.demo :global(.ds-form-field) { width: 100%; }
+.demo :global(.ds-text) { margin: 0; }
+.inline { align-items: center; display: flex; flex-wrap: wrap; gap: 0.65rem; }
+@media (max-width: 600px) { .page { padding: 2rem 1rem 4rem; } .catalog { padding: 0 1rem 1rem; } }

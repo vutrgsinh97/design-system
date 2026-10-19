@@ -19,13 +19,14 @@ Adapted for this UI library from the [Front-End Checklist](https://github.com/th
 
 ## Styling and performance
 
-- [ ] Each component keeps implementation and CSS together in its desktop or mobile folder.
-- [ ] Desktop and mobile imports do not depend on each other.
+- [ ] Each primitive or composite keeps implementation and CSS together in its own folder.
+- [ ] Desktop and mobile composites do not depend on each other; shared primitives do not import view composites.
 - [ ] Styles are scoped with `ds-` names and use shared tokens.
 - [ ] Component CSS does not affect unrelated MFE elements.
-- [ ] Button-only bundles for desktop and mobile exclude the other view, Dialog, Radix, and Dialog CSS.
+- [ ] Button-only bundles use the shared primitive and exclude Dialog, Radix, and Dialog CSS; FormField-only builds exclude Card and Dialog.
 - [ ] Production JS/CSS size change is measured and justified for new dependencies.
 - [ ] Icons, fonts, locales, and complex controls are imported only where used.
+- [ ] Icon package changes preserve per-icon subpath imports; an icon-only bundle excludes other icons.
 
 ## Verification
 

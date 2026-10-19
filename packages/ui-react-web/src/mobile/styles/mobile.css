@@ -10,6 +10,8 @@
   --ds-mobile-text: #12312d;
   --ds-mobile-muted: #607772;
   --ds-mobile-danger: #b43245;
+  --ds-mobile-danger-hover: #92283a;
+  --ds-mobile-on-danger: #ffffff;
   --ds-mobile-focus: #087e71;
   --ds-mobile-radius: 1.125rem;
   --ds-mobile-shadow: 0 12px 30px rgb(10 68 58 / 12%);
@@ -26,6 +28,23 @@
   --ds-mobile-text: #ebf8f3;
   --ds-mobile-muted: #a8c7bb;
   --ds-mobile-danger: #ff9aaa;
+  --ds-mobile-danger-hover: #ffc2ca;
+  --ds-mobile-on-danger: #331116;
   --ds-mobile-focus: #91e8d5;
   --ds-mobile-shadow: 0 12px 30px rgb(0 0 0 / 30%);
+}
+
+/* Shared controls keep their structure; the mobile container supplies its palette. */
+[data-ds-platform='mobile'] {
+  --ds-color-primary: var(--ds-mobile-accent);
+  --ds-color-primary-hover: var(--ds-mobile-accent-pressed);
+  --ds-color-on-primary: var(--ds-mobile-on-accent);
+  --ds-color-text: var(--ds-mobile-text);
+  --ds-color-muted: var(--ds-mobile-muted);
+  --ds-color-surface: var(--ds-mobile-surface);
+  --ds-color-border: var(--ds-mobile-border);
+  --ds-color-danger: var(--ds-mobile-danger);
+  --ds-color-danger-hover: var(--ds-mobile-danger-hover);
+  --ds-color-on-danger: var(--ds-mobile-on-danger);
+  --ds-color-focus: var(--ds-mobile-focus);
 }

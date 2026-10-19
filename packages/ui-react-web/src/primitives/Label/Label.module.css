@@ -1,0 +1,3 @@
+.scope {}
+:global(.ds-label) { color: var(--ds-color-text); display: block; font: 600 0.875rem/1.4 var(--ds-font-family); }
+:global([data-ds-platform='desktop'][data-ds-density='compact'] .ds-label) { font-size: var(--ds-font-size-metadata, 0.75rem); }

@@ -1,0 +1,9 @@
+.scope {}
+:global(.ds-radio) { align-items: center; color: var(--ds-color-text); cursor: pointer; display: inline-flex; font: 400 0.875rem/1.4 var(--ds-font-family); gap: 0.5rem; }
+:global(.ds-radio__input) { accent-color: var(--ds-color-primary); height: 1rem; margin: 0; width: 1rem; }
+:global(.ds-radio__input):focus-visible { outline: 2px solid var(--ds-color-focus); outline-offset: 2px; }
+:global(.ds-radio):has(:disabled) { cursor: not-allowed; opacity: 0.56; }
+
+/* Small mobile adjustments; component logic and visual language stay shared. */
+:global([data-ds-platform='mobile'] .ds-radio) { min-height: 2.75rem; }
+:global([data-ds-platform='mobile'] .ds-radio__input) { height: 1.125rem; width: 1.125rem; }
