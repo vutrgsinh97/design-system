@@ -1,4 +1,4 @@
-.scope {}
+.scope { --ds-scope: 1; }
 :global(.ds-alert) { border: 1px solid currentColor; border-radius: var(--ds-radius-md); box-sizing: border-box; font: 400 var(--ds-font-size-content, 0.875rem)/1.5 var(--ds-font-family); overflow-wrap: anywhere; padding: var(--ds-space-3, 0.75rem) var(--ds-space-4, 1rem); }
 :global(.ds-alert--info) { background: color-mix(in srgb, var(--ds-color-primary) 8%, var(--ds-color-surface)); color: var(--ds-color-primary); }
 :global(.ds-alert--success) { background: var(--ds-color-success-soft); color: var(--ds-color-success); }

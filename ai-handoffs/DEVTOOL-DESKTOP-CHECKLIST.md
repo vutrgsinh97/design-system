@@ -25,7 +25,7 @@ Nguồn yêu cầu: file người dùng cung cấp ngày 09/10/2026. Phạm vi l
 ## Quy tắc giao việc
 
 - Agent con dùng **Luna**, mỗi lần nhận đúng một file `ai-handoffs/tasks/TASK-###.md`. Tối đa hai agent sửa component song song; các folder sở hữu phải khác nhau. Không giao nhiều task cùng component cho nhiều agent.
-- Agent chính sở hữu `theme.css`, cấu hình tokens, `src/index.ts`, `src/desktop/index.ts`, `package.json`, `packages/ui-react-web/package.json`, lockfile, dependency mới, scripts/fixtures bundle, navigation, tích hợp và tarball. Agent con chỉ đề xuất export/dependency trong report, không tự sửa các file chung.
+- Agent chính sở hữu `theme.css`, cấu hình tokens, `src/index.ts`, `src/desktop/index.ts`, `package.json`, `packages/ui-react-web/package.json`, lockfile, dependency mới, bundle fixtures (`apps/vite-example/src/fixtures`), navigation, tích hợp và tarball. Agent con chỉ đề xuất export/dependency trong report, không tự sửa các file chung.
 - Mỗi Luna chỉ sửa các path ghi trong brief và report tương ứng `ai-handoffs/reports/TASK-###.md`. Không sửa source ứng dụng tiêu thụ. Agent làm playground và tài liệu có path riêng, chạy sau khi API đã tích hợp.
 - Trước khi code: đọc `AGENTS.md`, `README.md`, `REVIEW.md` và brief. Giữ API hiện có; breaking change phải được nêu cho agent chính trước khi thực hiện. CSS local dùng tokens; React là peer dependency; icon import theo từng icon.
 - Không chạy nhiều lệnh build/clean cùng lúc trong workspace. Luna chạy kiểm tra tĩnh phù hợp; agent chính chạy `pnpm check`, build các example và bundle gate sau mỗi đợt. Một task chỉ được đánh dấu xong khi gate liên quan qua và report có kết quả thật.

@@ -1,4 +1,4 @@
-.scope {}
+.scope { --ds-scope: 1; }
 :global(.ds-text) { font-family: var(--ds-font-family); font-size: var(--ds-font-size-content, 0.875rem); line-height: 1.5; margin: 0; overflow-wrap: anywhere; }
 :global(.ds-text--sm) { font-size: var(--ds-font-size-metadata, 0.75rem); }
 :global(.ds-text--md) { font-size: var(--ds-font-size-content, 0.875rem); }

@@ -1,4 +1,4 @@
-.scope {}
+.scope { --ds-scope: 1; }
 
 :global(.ds-list) {
   box-sizing: border-box;

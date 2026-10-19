@@ -1,4 +1,4 @@
-.scope {}
+.scope { --ds-scope: 1; }
 :global(.ds-tooltip__content) { align-items: center; background: var(--ds-color-text); border: 1px solid var(--ds-color-border); border-radius: var(--ds-radius-sm); box-shadow: var(--ds-shadow-popover); box-sizing: border-box; color: var(--ds-color-surface); display: flex; gap: 0.75rem; max-width: min(24rem, calc(100vw - 1rem)); padding: 0.375rem 0.625rem; z-index: 1100; }
 :global(.ds-tooltip__label) { font: 500 var(--ds-font-size-sm, 0.8125rem)/1.4 var(--ds-font-family); min-width: 0; overflow-wrap: anywhere; }
 :global(.ds-tooltip__shortcut) { border: 1px solid currentColor; border-radius: var(--ds-radius-sm); flex: 0 0 auto; font: 500 0.6875rem/1.2 var(--ds-font-family-mono, monospace); opacity: 0.8; padding: 0.125rem 0.25rem; }

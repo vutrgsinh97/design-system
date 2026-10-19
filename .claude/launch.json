@@ -1,0 +1,17 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "next-example",
+      "runtimeExecutable": "pnpm",
+      "runtimeArgs": ["--filter", "next-example", "dev", "--port", "4817"],
+      "port": 4817
+    },
+    {
+      "name": "next-mobile-example",
+      "runtimeExecutable": "pnpm",
+      "runtimeArgs": ["--filter", "next-mobile-example", "dev", "--port", "5293"],
+      "port": 5293
+    }
+  ]
+}

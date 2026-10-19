@@ -1,4 +1,4 @@
-.scope {}
+.scope { --ds-scope: 1; }
 
 :global(.ds-menu__content) {
   background: var(--ds-color-surface);

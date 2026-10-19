@@ -13,7 +13,8 @@ body { background: var(--ds-color-background); color: var(--ds-color-text); font
 .demo-card { margin-top: 2rem; }
 .demo-row { align-items: center; display: flex; flex-wrap: wrap; gap: 1rem; }
 .demo-fields { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); }
-.demo-fields label { display: grid; font-size: 0.875rem; font-weight: 600; gap: 0.4rem; }
+.demo-status { align-items: center; color: var(--ds-color-muted); display: inline-flex; font-size: 0.875rem; gap: 0.5rem; margin-left: auto; }
+.demo-fields label { align-content: start; display: grid; font-size: 0.875rem; font-weight: 600; gap: 0.4rem; }
 
 .button-showcase { background: var(--ds-color-surface); border: 1px solid var(--ds-color-border); border-radius: var(--ds-radius-lg); color: var(--ds-color-text); margin-top: 2rem; padding: 1.5rem; transition: background-color 150ms ease, color 150ms ease; }
 .button-showcase__header { align-items: flex-start; display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; }

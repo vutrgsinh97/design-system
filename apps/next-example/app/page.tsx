@@ -45,12 +45,12 @@ export default function Home() {
           <Button>Primary button</Button>
           <Button variant="secondary">Secondary</Button>
           <Button variant="ghost">Ghost</Button>
-          <Spinner label="Loading example" />
+          <span className="demo-status"><Spinner label="Loading example" />Loading…</span>
         </div>
         <div className="demo-fields">
           <FormField label="Name" hint="This field connects its label and hint automatically."><Input placeholder="Your name" /></FormField>
-          <label>Select<Select defaultValue="one"><option value="one">One</option><option value="two">Two</option></Select></label>
-          <label>Message<Textarea placeholder="Write a message" /></label>
+          <FormField label="Select"><Select defaultValue="one"><option value="one">One</option><option value="two">Two</option></Select></FormField>
+          <FormField label="Message"><Textarea placeholder="Write a message" /></FormField>
         </div>
         <div className="demo-row"><Checkbox>Remember me</Checkbox><Switch>Notifications</Switch></div>
         <Alert variant="success">This alert uses shared design tokens.</Alert>

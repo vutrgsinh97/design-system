@@ -1,4 +1,4 @@
-.scope {}
+.scope { --ds-scope: 1; }
 :global(.ds-badge) { align-items: center; border: 1px solid transparent; border-radius: 999px; display: inline-flex; font: 600 0.75rem/1.25 var(--ds-font-family); gap: 0.375rem; min-height: 1.5rem; padding: 0.125rem 0.625rem; white-space: nowrap; }
 :global(.ds-badge)::before { background: currentColor; border-radius: 50%; content: ''; flex: none; height: 0.375rem; width: 0.375rem; }
 :global(.ds-badge--neutral) { background: color-mix(in srgb, var(--ds-color-border) 45%, transparent); color: var(--ds-color-text); }

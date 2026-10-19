@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import {
   Button,
+  FormField,
   Modal,
   PromiseToast,
   Toast,
@@ -12,6 +13,7 @@ import {
   ToastProvider,
   ToastTitle,
   ToastViewport,
+  Select,
   type ToastPosition,
   type ToastStatus
 } from '@company/ui-react-web/desktop'
@@ -96,10 +98,11 @@ export function ModalToastShowcase() {
       </div>
       <div className={styles.group}>
         <h3>Toast status and position</h3>
-        <label className={styles.positionLabel} htmlFor="toast-position">Viewport position</label>
-        <select id="toast-position" className={styles.select} value={position} onChange={(event) => setPosition(event.target.value as ToastPosition)}>
-          {positions.map((value) => <option key={value} value={value}>{value}</option>)}
-        </select>
+        <FormField label="Viewport position" className={styles.position}>
+          <Select value={position} onChange={(event) => setPosition(event.target.value as ToastPosition)}>
+            {positions.map((value) => <option key={value} value={value}>{value}</option>)}
+          </Select>
+        </FormField>
         <div className={styles.actions}>
           {(Object.keys(messages) as ToastStatus[]).map((status) => (
             <Button key={status} variant="outline" size="sm" onClick={() => showToast(status)}>{status}</Button>

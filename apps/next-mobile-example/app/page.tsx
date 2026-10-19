@@ -51,8 +51,8 @@ export default function MobilePlayground() {
           <CardHeader><CardTitle>Profile settings</CardTitle></CardHeader>
           <CardContent><div className="mobile-demo__fields">
             <FormField label="Display name"><Input placeholder="Your name" /></FormField>
-            <label>Team<Select defaultValue="design"><option value="design">Design</option><option value="engineering">Engineering</option></Select></label>
-            <label>About you<Textarea placeholder="A few words about yourself" /></label>
+            <FormField label="Team"><Select defaultValue="design"><option value="design">Design</option><option value="engineering">Engineering</option></Select></FormField>
+            <FormField label="About you"><Textarea placeholder="A few words about yourself" /></FormField>
             <Checkbox defaultChecked>Share my profile</Checkbox>
             <Switch defaultChecked>Notifications</Switch>
             <fieldset className="mobile-demo__choice">

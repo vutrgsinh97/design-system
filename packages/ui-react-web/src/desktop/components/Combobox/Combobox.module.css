@@ -1,4 +1,4 @@
-.scope {}
+.scope { --ds-scope: 1; }
 
 :global(.ds-combobox) { display: block; min-width: 0; position: relative; }
 :global(.ds-combobox__input) {

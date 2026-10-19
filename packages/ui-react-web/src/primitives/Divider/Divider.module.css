@@ -1,2 +1,2 @@
-.scope {}
+.scope { --ds-scope: 1; }
 :global(.ds-divider) { border: 0; border-top: 1px solid var(--ds-color-border); height: 0; margin: var(--ds-space-4, 1rem) 0; }

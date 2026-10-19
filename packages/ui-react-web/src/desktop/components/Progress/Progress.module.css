@@ -1,4 +1,4 @@
-.scope {}
+.scope { --ds-scope: 1; }
 
 :global(.ds-progress__container) { color: var(--ds-color-text); font-family: var(--ds-font-family); min-width: 0; }
 :global(.ds-progress__label-row) { align-items: baseline; display: flex; gap: var(--ds-space-2, 0.5rem); justify-content: space-between; margin-bottom: var(--ds-space-2, 0.5rem); }

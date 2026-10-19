@@ -1,4 +1,4 @@
-.scope {}
+.scope { --ds-scope: 1; }
 :global(.ds-button) {
   align-items: center;
   background: var(--ds-button-bg);
