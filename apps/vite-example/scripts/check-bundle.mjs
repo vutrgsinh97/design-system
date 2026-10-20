@@ -61,6 +61,7 @@ const tableOnly = await inspect('desktop-table-only')
 const listOnly = await inspect('desktop-list-only')
 const treeOnly = await inspect('desktop-tree-only')
 const comboboxOnly = await inspect('desktop-combobox-only')
+const searchSelectOnly = await inspect('desktop-search-select-only')
 const splitPaneOnly = await inspect('desktop-split-pane-only')
 const toastOnly = await inspect('desktop-toast-only')
 const promiseToastOnly = await inspect('desktop-promise-toast-only')
@@ -71,11 +72,11 @@ const panelMinimalOnly = await inspect('desktop-panel-minimal-only')
 
 for (const [name, bundle] of [['root', legacy], ['desktop', desktopButton], ['mobile', mobileButton]]) {
   assertSharedButton(bundle, name)
-  const unrelated = ['Tabs', 'Tooltip', 'Menu', 'Table', 'List', 'Tree', 'Combobox', 'SplitPane', 'Toast', 'Progress', 'EmptyState', 'Panel', 'Modal']
+  const unrelated = ['Tabs', 'Tooltip', 'Menu', 'Table', 'List', 'Tree', 'Combobox', 'SearchSelect', 'SplitPane', 'Toast', 'Progress', 'EmptyState', 'Panel', 'Modal']
   for (const component of unrelated) {
     if (bundle.modules.some((path) => path.includes(`/dist/desktop/components/${component}/`))) throw new Error(`${name} Button unexpectedly imports ${component}`)
   }
-  const unrelatedCss = ['tabs', 'tooltip', 'menu', 'table', 'list', 'tree', 'combobox', 'split-pane', 'toast', 'progress', 'empty-state', 'panel', 'modal']
+  const unrelatedCss = ['tabs', 'tooltip', 'menu', 'table', 'list', 'tree', 'combobox', 'search-select', 'split-pane', 'toast', 'progress', 'empty-state', 'panel', 'modal']
   for (const cssName of unrelatedCss) {
     if (bundle.css.includes(`.ds-${cssName}`)) throw new Error(`${name} Button unexpectedly includes ${cssName} CSS`)
   }
@@ -103,6 +104,9 @@ if (toastOnly.modules.some((path) => path.includes('/dist/desktop/components/Toa
 if (!promiseToastOnly.modules.some((path) => path.includes('/dist/desktop/components/Toast/PromiseToast')) || !promiseToastOnly.modules.some((path) => path.includes('/dist/primitives/Spinner/')) || !promiseToastOnly.css.includes('.ds-spinner')) {
   throw new Error('PromiseToast subpath is missing its component or Spinner')
 }
+if (searchSelectOnly.modules.some((path) => path.includes('@radix-ui/'))) {
+  throw new Error('SearchSelect unexpectedly bundles Radix')
+}
 if (panelMinimalOnly.modules.some((path) => path.includes('/dist/primitives/Button/')) || panelMinimalOnly.css.includes('.ds-button')) {
   throw new Error('Minimal Panel unexpectedly includes Button')
 }
@@ -115,6 +119,7 @@ for (const [name, bundle, expected, unrelated] of [
   ['List', listOnly, 'List', ['Tabs', 'Dialog', 'Tooltip', 'Menu', 'Toast']],
   ['Tree', treeOnly, 'Tree', ['Tabs', 'Dialog', 'Tooltip', 'Menu', 'Toast', 'List']],
   ['Combobox', comboboxOnly, 'Combobox', ['Tabs', 'Dialog', 'Tooltip', 'Menu', 'Toast', 'Tree']],
+  ['SearchSelect', searchSelectOnly, 'SearchSelect', ['Combobox', 'Tabs', 'Dialog', 'Tooltip', 'Menu', 'Toast', 'Tree']],
   ['SplitPane', splitPaneOnly, 'SplitPane', ['Tabs', 'Dialog', 'Tooltip', 'Menu', 'Toast', 'Tree']],
   ['Toast', toastOnly, 'Toast', ['Tabs', 'Dialog', 'Tooltip', 'Menu', 'Tree']],
   ['Progress', progressOnly, 'Progress', ['Tabs', 'Dialog', 'Tooltip', 'Menu', 'Toast', 'Tree']],
@@ -122,7 +127,7 @@ for (const [name, bundle, expected, unrelated] of [
   ['Panel', panelOnly, 'Panel', ['Tabs', 'Dialog', 'Tooltip', 'Menu', 'Toast', 'Tree']]
 ]) {
   if (!bundle.modules.some((path) => path.includes(`/dist/desktop/components/${expected}/`))) throw new Error(`${name} subpath is missing its component`)
-  const cssName = name === 'SplitPane' ? 'split-pane' : name === 'EmptyState' ? 'empty-state' : name.toLowerCase()
+  const cssName = name === 'SplitPane' ? 'split-pane' : name === 'SearchSelect' ? 'search-select' : name === 'EmptyState' ? 'empty-state' : name.toLowerCase()
   if (!bundle.css.includes(`.ds-${cssName}`)) throw new Error(`${name} subpath is missing component CSS`)
   for (const other of unrelated) {
     if (bundle.modules.some((path) => path.includes(`/dist/desktop/components/${other}/`))) throw new Error(`${name} unexpectedly imports ${other}`)
@@ -130,7 +135,7 @@ for (const [name, bundle, expected, unrelated] of [
   if (bundle.modules.some((path) => path.includes('/dist/mobile/components/'))) throw new Error(`${name} unexpectedly imports mobile components`)
 }
 
-for (const [name, bundle] of [['shared Button', desktopButton], ['FormField', formField], ['desktop Dialog', desktopDialog], ['mobile Dialog', mobileDialog], ['Modal', modalOnly], ['Tabs', tabsOnly], ['Tooltip', tooltipOnly], ['Menu', menuOnly], ['Table', tableOnly], ['List', listOnly], ['Tree', treeOnly], ['Combobox', comboboxOnly], ['SplitPane', splitPaneOnly], ['Toast', toastOnly], ['PromiseToast', promiseToastOnly], ['Progress', progressOnly], ['EmptyState', emptyStateOnly], ['Panel', panelOnly], ['minimal Panel', panelMinimalOnly]]) {
+for (const [name, bundle] of [['shared Button', desktopButton], ['FormField', formField], ['desktop Dialog', desktopDialog], ['mobile Dialog', mobileDialog], ['Modal', modalOnly], ['Tabs', tabsOnly], ['Tooltip', tooltipOnly], ['Menu', menuOnly], ['Table', tableOnly], ['List', listOnly], ['Tree', treeOnly], ['Combobox', comboboxOnly], ['SearchSelect', searchSelectOnly], ['SplitPane', splitPaneOnly], ['Toast', toastOnly], ['PromiseToast', promiseToastOnly], ['Progress', progressOnly], ['EmptyState', emptyStateOnly], ['Panel', panelOnly], ['minimal Panel', panelMinimalOnly]]) {
   console.log(`${name}: ${Buffer.byteLength(bundle.js)} bytes JS, ${Buffer.byteLength(bundle.css)} bytes CSS`)
 }
 console.log('Shared primitive and view-specific composite bundle checks passed')

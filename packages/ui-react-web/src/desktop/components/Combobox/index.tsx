@@ -16,6 +16,7 @@ import {
   type ReactNode
 } from 'react'
 import '../../../styles/theme.css'
+import { useListHighlight } from '../../hooks/useListHighlight.js'
 import styles from './Combobox.module.css'
 
 export type ComboboxOptionData = {
@@ -92,11 +93,8 @@ export const Combobox = forwardRef<HTMLInputElement, ComboboxProps>(function Com
   const rootRef = useRef<HTMLDivElement>(null)
   const inputRef = useRef<HTMLInputElement>(null)
   const [internalOpen, setInternalOpen] = useState(defaultOpen)
-  const [internalHighlight, setInternalHighlight] = useState<string | null>(null)
   const isOpenControlled = openProp !== undefined
-  const isHighlightControlled = highlightedValueProp !== undefined
   const open = isOpenControlled ? openProp : internalOpen
-  const highlightedValue = isHighlightControlled ? highlightedValueProp : internalHighlight
   const openRef = useRef(open)
   openRef.current = open
 
@@ -113,11 +111,6 @@ export const Combobox = forwardRef<HTMLInputElement, ComboboxProps>(function Com
     onOpenChange?.(nextOpen)
   }, [isOpenControlled, onOpenChange])
 
-  const changeHighlight = useCallback((nextValue: string | null) => {
-    if (!isHighlightControlled) setInternalHighlight(nextValue)
-    onHighlightedValueChange?.(nextValue)
-  }, [isHighlightControlled, onHighlightedValueChange])
-
   useEffect(() => {
     if (!open) return
     const handlePointerDown = (event: PointerEvent) => {
@@ -128,21 +121,14 @@ export const Combobox = forwardRef<HTMLInputElement, ComboboxProps>(function Com
   }, [open, changeOpen])
 
   const enabledOptions = options.filter((option) => !option.disabled)
-  const highlightedIndex = enabledOptions.findIndex((option) => option.value === highlightedValue)
+  const {
+    highlighted: highlightedValue,
+    setHighlighted: changeHighlight,
+    handleArrowKey
+  } = useListHighlight(enabledOptions.map((option) => option.value), highlightedValueProp, onHighlightedValueChange)
   const selectedOption = options.find((option) => option.value === value)
   const activeOption = enabledOptions.find((option) => option.value === highlightedValue)
   const activeOptionId = activeOption ? `${generatedId}-option-${options.indexOf(activeOption)}` : undefined
-
-  const moveHighlight = (direction: 1 | -1) => {
-    if (enabledOptions.length === 0) {
-      changeHighlight(null)
-      return
-    }
-    const nextIndex = highlightedIndex < 0
-      ? direction > 0 ? 0 : enabledOptions.length - 1
-      : (highlightedIndex + direction + enabledOptions.length) % enabledOptions.length
-    changeHighlight(enabledOptions[nextIndex].value)
-  }
 
   const selectOption = (option: ComboboxOptionData) => {
     if (option.disabled) return
@@ -162,15 +148,9 @@ export const Combobox = forwardRef<HTMLInputElement, ComboboxProps>(function Com
   const handleKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
     onKeyDown?.(event)
     if (event.defaultPrevented) return
-    if (event.key === 'ArrowDown') {
-      event.preventDefault()
-      if (!open) changeOpen(true)
-      moveHighlight(1)
-    } else if (event.key === 'ArrowUp') {
-      event.preventDefault()
-      if (!open) changeOpen(true)
-      moveHighlight(-1)
-    } else if (event.key === 'Enter' && open && activeOption) {
+    if ((event.key === 'ArrowDown' || event.key === 'ArrowUp') && !open) changeOpen(true)
+    if (handleArrowKey(event)) return
+    if (event.key === 'Enter' && open && activeOption) {
       event.preventDefault()
       selectOption(activeOption)
     } else if (event.key === 'Escape' && open) {

@@ -269,6 +269,10 @@
       "types": "./dist/desktop/components/Combobox/index.d.ts",
       "import": "./dist/desktop/components/Combobox/index.js"
     },
+    "./desktop/search-select": {
+      "types": "./dist/desktop/components/SearchSelect/index.d.ts",
+      "import": "./dist/desktop/components/SearchSelect/index.js"
+    },
     "./split-pane": {
       "types": "./dist/desktop/components/SplitPane/index.d.ts",
       "import": "./dist/desktop/components/SplitPane/index.js"
