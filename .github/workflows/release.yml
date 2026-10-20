@@ -25,11 +25,13 @@ jobs:
           scope: '@vutrgsinh97'
       - run: pnpm install --frozen-lockfile
       # Opens a "Version packages" PR while changesets are pending; publishes once that PR is merged.
-      - uses: changesets/action@v2
+      # v2 requires Changesets CLI v3; this repo uses CLI v2, so stay on v1 (which already runs on Node 24).
+      - uses: changesets/action@v1
         with:
-          version-script: pnpm version-packages
-          publish-script: pnpm release
-          pr-title: Version packages
-          commit-message: Version packages
+          version: pnpm version-packages
+          publish: pnpm release
+          title: Version packages
+          commit: Version packages
         env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
