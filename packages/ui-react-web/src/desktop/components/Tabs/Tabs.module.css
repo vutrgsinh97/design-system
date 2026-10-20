@@ -18,7 +18,7 @@
   color: var(--ds-color-muted);
   cursor: pointer;
   flex: 0 0 auto;
-  font: 600 var(--ds-font-size-content, 0.875rem)/1.25 var(--ds-font-family);
+  font: var(--ds-font-weight-semibold) var(--ds-font-size-content, 0.875rem)/var(--ds-line-height-tight) var(--ds-font-family);
   margin-bottom: -1px;
   max-width: min(24rem, 75vw);
   overflow: hidden;

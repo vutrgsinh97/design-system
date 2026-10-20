@@ -1,5 +1,5 @@
 .scope { --ds-scope: 1; }
-:global(.ds-textarea) { box-sizing: border-box; background: var(--ds-color-surface); border: 1px solid var(--ds-color-border); border-radius: var(--ds-radius-md); color: var(--ds-color-text); font: 400 0.875rem/1.5 var(--ds-font-family); min-height: 6rem; padding: 0.625rem 0.75rem; resize: vertical; width: 100%; }
+:global(.ds-textarea) { box-sizing: border-box; background: var(--ds-color-surface); border: 1px solid var(--ds-color-border); border-radius: var(--ds-radius-md); color: var(--ds-color-text); font: var(--ds-font-weight-regular) var(--ds-font-size-sm)/var(--ds-line-height-normal) var(--ds-font-family); min-height: 6rem; padding: 0.625rem var(--ds-space-3); resize: vertical; width: 100%; }
 :global(.ds-textarea)::placeholder { color: var(--ds-color-muted); }
 :global(.ds-textarea):hover:not(:disabled) { border-color: color-mix(in srgb, var(--ds-color-border), var(--ds-color-text) 30%); }
 :global(.ds-textarea):focus-visible { outline: 2px solid var(--ds-color-focus); outline-offset: 1px; }
@@ -7,5 +7,5 @@
 :global(.ds-textarea):disabled { cursor: not-allowed; opacity: 0.56; }
 
 /* Small mobile adjustments; component logic and visual language stay shared. */
-:global([data-ds-platform='mobile'] .ds-textarea) { min-height: 8rem; font-size: 1rem; }
+:global([data-ds-platform='mobile'] .ds-textarea) { min-height: 8rem; font-size: var(--ds-font-size-md); }
 :global([data-ds-platform='desktop'][data-ds-density='compact'] .ds-textarea) { min-height: 4.5rem; padding-block: 0.375rem; }

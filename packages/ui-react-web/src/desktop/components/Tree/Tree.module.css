@@ -40,7 +40,7 @@
   font: inherit;
   height: var(--ds-icon-size, 1rem);
   justify-content: center;
-  line-height: 1;
+  line-height: var(--ds-line-height-none);
   padding: 0;
   width: var(--ds-icon-size, 1rem);
 }
