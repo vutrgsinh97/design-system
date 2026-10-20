@@ -1,5 +1,6 @@
 :root,
-[data-ds-theme='light'] {
+[data-ds-theme='light'],
+[data-ds-theme='auto'] {
   --ds-mobile-accent: #087e71;
   --ds-mobile-accent-pressed: #05665c;
   --ds-mobile-on-accent: #ffffff;
@@ -31,6 +32,26 @@
   --ds-mobile-on-danger: #331116;
   --ds-mobile-focus: #91e8d5;
   --ds-mobile-shadow: 0 12px 30px rgb(0 0 0 / 30%);
+}
+
+/* `auto` follows the OS setting; this block must match the dark block above (checked by tests). */
+@media (prefers-color-scheme: dark) {
+  [data-ds-theme='auto'] {
+    --ds-mobile-accent: #65d5c1;
+    --ds-mobile-accent-pressed: #a2e9dd;
+    --ds-mobile-on-accent: #10352d;
+    --ds-mobile-page: #101e1b;
+    --ds-mobile-surface: #1b302b;
+    --ds-mobile-field: #29433c;
+    --ds-mobile-border: #45675d;
+    --ds-mobile-text: #ebf8f3;
+    --ds-mobile-muted: #a8c7bb;
+    --ds-mobile-danger: #ff9aaa;
+    --ds-mobile-danger-hover: #ffc2ca;
+    --ds-mobile-on-danger: #331116;
+    --ds-mobile-focus: #91e8d5;
+    --ds-mobile-shadow: 0 12px 30px rgb(0 0 0 / 30%);
+  }
 }
 
 /* Shared controls keep their structure; the mobile container supplies its palette. */

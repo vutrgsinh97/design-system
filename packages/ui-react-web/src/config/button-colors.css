@@ -3,6 +3,7 @@
 :root,
 [data-ds-theme='light'],
 [data-ds-theme='dark'],
+[data-ds-theme='auto'],
 [data-ds-platform='mobile'] {
   --ds-button-primary-bg: var(--ds-color-primary);
   --ds-button-primary-text: var(--ds-color-on-primary);
