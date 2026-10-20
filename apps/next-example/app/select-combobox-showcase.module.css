@@ -1,0 +1,6 @@
+.modes { display: flex; flex-wrap: wrap; gap: .25rem; margin-bottom: 1rem; }
+.grid { display: grid; gap: 1.5rem; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.column { align-content: start; display: grid; gap: .5rem; min-width: 0; }
+.column > label, .column > span { font-size: .875rem; font-weight: 650; }
+.column :global(.ds-text) { margin: 0; }
+@media (max-width: 760px) { .grid { grid-template-columns: 1fr; } }

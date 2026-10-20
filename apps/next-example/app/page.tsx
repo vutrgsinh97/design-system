@@ -3,6 +3,7 @@ import { DesktopCollectionsShowcase } from './DesktopCollectionsShowcase'
 import { ButtonShowcase } from './ButtonShowcase'
 import { PanelShowcase } from './PanelShowcase'
 import { ModalToastShowcase } from './ModalToastShowcase'
+import { SelectComboboxShowcase } from './SelectComboboxShowcase'
 import {
   Alert,
   Badge,
@@ -38,6 +39,7 @@ export default function Home() {
       <ButtonShowcase />
       <PanelShowcase />
       <ModalToastShowcase />
+      <SelectComboboxShowcase />
       <Card className="demo-card">
         <CardHeader><CardTitle>Build with shared controls</CardTitle></CardHeader>
         <CardContent>
