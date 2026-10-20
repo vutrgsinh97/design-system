@@ -7,9 +7,9 @@
   border: 1px solid var(--ds-color-border);
   border-radius: var(--ds-radius-md);
   color: var(--ds-color-text);
-  font: 400 0.875rem/1.35 var(--ds-font-family);
+  font: var(--ds-font-weight-regular) var(--ds-font-size-sm)/var(--ds-line-height-snug) var(--ds-font-family);
   height: var(--ds-control-height, 2.5rem);
-  padding: 0 0.75rem;
+  padding: 0 var(--ds-space-3);
   width: 100%;
 }
 :global(.ds-input):hover:not(:disabled) { border-color: color-mix(in srgb, var(--ds-color-border), var(--ds-color-text) 30%); }
@@ -44,7 +44,7 @@
   min-width: 0;
   min-height: 2.375rem;
   outline: 0;
-  padding-block: 0.5rem;
+  padding-block: var(--ds-space-2);
   width: 100%;
 }
 :global(.ds-input-field .ds-input:focus-visible) { outline: 0; }
@@ -54,8 +54,8 @@
   color: var(--ds-color-muted);
   display: inline-flex;
   flex: none;
-  font: 400 0.875rem/1.35 var(--ds-font-family);
-  padding: 0 0.75rem;
+  font: var(--ds-font-weight-regular) var(--ds-font-size-sm)/var(--ds-line-height-snug) var(--ds-font-family);
+  padding: 0 var(--ds-space-3);
   white-space: nowrap;
 }
 :global(.ds-input-field__adornment:first-child) { padding-right: 0; }
@@ -63,10 +63,10 @@
 :global(.ds-input-field__adornment svg) { display: block; height: 1rem; width: 1rem; }
 
 :global([data-ds-platform='mobile'] .ds-input-field) { min-height: 2.75rem; }
-:global([data-ds-platform='mobile'] .ds-input) { min-height: 2.75rem; font-size: 1rem; }
+:global([data-ds-platform='mobile'] .ds-input) { min-height: 2.75rem; font-size: var(--ds-font-size-md); }
 :global([data-ds-platform='mobile'] .ds-input-field .ds-input) { min-height: 2.625rem; }
 
 /* Compact sizing is opt-in and scoped to a desktop container. */
 :global([data-ds-platform='desktop'][data-ds-density='compact'] .ds-input),
 :global([data-ds-platform='desktop'][data-ds-density='compact'] .ds-input-field) { min-height: var(--ds-control-height, 2rem); }
-:global([data-ds-platform='desktop'][data-ds-density='compact'] .ds-input-field .ds-input) { min-height: calc(var(--ds-control-height, 2rem) - 2px); padding-block: 0.25rem; }
+:global([data-ds-platform='desktop'][data-ds-density='compact'] .ds-input-field .ds-input) { min-height: calc(var(--ds-control-height, 2rem) - 2px); padding-block: var(--ds-space-1); }

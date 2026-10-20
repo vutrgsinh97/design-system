@@ -1,5 +1,5 @@
 .scope { --ds-scope: 1; }
-:global(.ds-radio) { align-items: center; color: var(--ds-color-text); cursor: pointer; display: inline-flex; font: 400 0.875rem/1.4 var(--ds-font-family); gap: 0.5rem; }
+:global(.ds-radio) { align-items: center; color: var(--ds-color-text); cursor: pointer; display: inline-flex; font: var(--ds-font-weight-regular) var(--ds-font-size-sm)/var(--ds-line-height-snug) var(--ds-font-family); gap: var(--ds-space-2); }
 :global(.ds-radio__input) { accent-color: var(--ds-color-primary); height: 1rem; margin: 0; width: 1rem; }
 :global(.ds-radio__input):focus-visible { outline: 2px solid var(--ds-color-focus); outline-offset: 2px; }
 :global(.ds-radio):has(:disabled) { cursor: not-allowed; opacity: 0.56; }

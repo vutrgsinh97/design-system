@@ -4,7 +4,7 @@
   border-collapse: separate;
   border-spacing: 0;
   color: var(--ds-color-text);
-  font: 400 var(--ds-font-size-content, 0.875rem)/1.4 var(--ds-font-family);
+  font: var(--ds-font-weight-regular) var(--ds-font-size-content, 0.875rem)/var(--ds-line-height-snug) var(--ds-font-family);
   min-width: 100%;
   text-align: left;
   width: 100%;
@@ -14,7 +14,7 @@
 :global(.ds-table__cell) {
   border-bottom: 1px solid var(--ds-color-border);
   overflow-wrap: anywhere;
-  padding: 0.625rem 0.75rem;
+  padding: 0.625rem var(--ds-space-3);
   vertical-align: middle;
 }
 
@@ -22,7 +22,7 @@
   background: var(--ds-color-background);
   color: var(--ds-color-muted);
   font-size: var(--ds-font-size-metadata, 0.75rem);
-  font-weight: 600;
+  font-weight: var(--ds-font-weight-semibold);
   white-space: nowrap;
 }
 
